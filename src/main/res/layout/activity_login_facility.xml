@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_10">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:background="@color/colorTwitter" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_mlarge">
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/spacing_mlarge"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:src="@mipmap/ic_tanzania_logo"
+             />
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_middle"
+            android:visibility="visible"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey_5"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_mlarge">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="@dimen/spacing_xlarge"
+                    android:layout_marginTop="@dimen/spacing_middle"
+                    android:text="LOGIN IN"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                    android:textColor="@color/blue"
+                    android:textStyle="bold" />
+                <ImageView
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="@dimen/spacing_mlarge"
+                    android:layout_marginTop="@dimen/spacing_large"
+                    android:src="@mipmap/nacp_logo"
+                    />
+
+               <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    android:id="@+id/facilityLoginSpinner"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="320dp"
+                    android:layout_height="45dp"
+                   android:drawableEnd="@drawable/ic_expand_arrow"
+                   android:drawableRight="@drawable/ic_expand_arrow"
+                   android:background="@drawable/edit_text_round_bg_white"
+                    android:layout_marginTop="@dimen/nav_header_vertical_spacing"
+                    app:hintText="Select Facility"
+                    app:errorEnabled="true"
+                    app:errorIconDrawable="@drawable/ic_error"
+                    app:errorIconTint="@color/red_500"
+                    app:helperText="*required"
+                   />
+                <EditText
+                    android:id="@+id/username"
+                    android:layout_width="320dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_text_round_bg_white"
+                    android:hint="Username"
+                    android:imeOptions="actionDone"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:selectAllOnFocus="true"
+                    android:textSize="16dp"
+                    />
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="320dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_text_round_bg_white"
+                    android:hint="Password"
+                    android:imeActionLabel="@string/action_sign_in_short"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:selectAllOnFocus="true"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="16dp"
+                    app:errorEnabled="true"
+                    app:errorIconDrawable="@drawable/ic_error"
+                    app:errorIconTint="@color/red_500"
+                    app:helperText="*required"
+                    />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/spacing_mlarge" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="match_parent"
+                    android:id="@+id/login"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="-4dp"
+                    android:layout_marginRight="-4dp"
+
+                    android:background="@drawable/btn_rounded_primary"
+                    android:text="LOGIN IN"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_medium"
+                    android:layout_marginTop="@dimen/spacing_large"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="New Facility? "
+                        android:textColor="@color/blue_grey_300" />
+
+                    <TextView
+                        android:id="@+id/facilityRegisterAccount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:contextClickable="true"
+                        android:linksClickable="true"
+                        android:longClickable="true"
+                        android:text="@string/action_register"
+                        android:textColor="@color/colorPrimaryLight"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/spacing_large" />
+
+    </LinearLayout>
+
+</RelativeLayout>

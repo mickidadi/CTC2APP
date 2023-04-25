@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="0dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/clientId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Client Id" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/firstName"
+                android:hint="First Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/middleName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Middle Name" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/lastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Last Name" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <RadioGroup
+            android:id="@+id/sex_radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/sexView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:text="Sex"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/radio_button_male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/radio_button_female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female" />
+
+
+        </RadioGroup>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="Select Date">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/dateOfBirth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <RadioGroup
+            android:id="@+id/fingerprint_radio_group"
+            android:layout_width="284dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/fingerprint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:text="Finger Print Consent"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/radio_button_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/radio_button_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No" />
+
+
+        </RadioGroup>
+
+
+    </LinearLayout>
+</LinearLayout>

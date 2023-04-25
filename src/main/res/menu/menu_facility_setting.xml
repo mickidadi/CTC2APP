@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.ucc.ctc.view.LoginActivity">
+
+    <item
+        android:id="@+id/facility_setting_data"
+        android:orderInCategory="100"
+        android:title="Facility Setting"
+        app:showAsAction="never" />
+
+</menu>

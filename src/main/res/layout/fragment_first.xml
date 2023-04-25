@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:orientation="vertical"
+    android:background="@color/grey_5"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:gravity="left">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        >
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/spacing_middle"
+            android:visibility="visible"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:id="@+id/StsecoundLayout"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="50dp"
+                android:padding="5dp"
+                android:clickable="true"
+                android:gravity="center"
+                android:background="?attr/selectableItemBackground"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/cfm_facility_name_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue"
+                    android:text="@string/app_ctc_facility"
+                    android:gravity="start"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="0dp" />
+                <TextView
+                    android:id="@+id/cfm_facility_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:layout_marginStart="5dp"
+                    android:textColor="#777"
+                    android:text="Facility Name"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="0dp" />
+                <TextView
+                    android:id="@+id/cfm_facility_type_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_ctc_facility_type"
+                    android:textColor="#444"
+                    android:textStyle="bold"
+                    android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/cfm_facility_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#777"
+                    android:text="Name of facility Type"
+                    android:gravity="start"
+                    android:layout_marginStart="5dp"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="0dp" />
+
+                <TextView
+                    android:id="@+id/cfm_HFRCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_ctc_hfr_code"
+                    android:textColor="#444"
+                    android:textStyle="bold"
+                    android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/cfm_facility_hfr_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:layout_marginStart="5dp"
+                    android:textColor="#777"
+                    android:text="HFR CODE"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="0dp" />
+                <TextView
+                    android:id="@+id/cfm_CTCCodes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#444"
+                    android:textStyle="bold"
+                    android:text="@string/app_ctc_code"
+                    android:textSize="14sp"
+                    />
+                <TextView
+                    android:id="@+id/cfm_CTCCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:layout_marginStart="5dp"
+                    android:textColor="#777"
+                    android:text="ENTER CTC CODE"
+                    android:textSize="14sp"
+                    />
+                <TextView
+                    android:id="@+id/cfm_region_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#444"
+                    android:textStyle="bold"
+                    android:text="@string/app_ctc_region_name"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="0dp" />
+                <TextView
+                    android:id="@+id/cfm_region_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#777"
+                    android:text="REGION NAME"
+                    android:gravity="start"
+                    android:layout_marginStart="5dp"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="0dp" />
+
+                <TextView
+                    android:id="@+id/cfm_council_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#444"
+                    android:textStyle="bold"
+                    android:text="@string/app_ctc_council_name"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="0dp" />
+                <TextView
+                    android:id="@+id/cfm_council_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:layout_marginStart="5dp"
+                    android:textColor="#777"
+                    android:text="COUNCIL NAME"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="0dp" />
+
+                <TextView
+                    android:id="@+id/cfm_ward_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#444"
+                    android:textStyle="bold"
+                    android:text="@string/app_ctc_ward_name"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="0dp" />
+                <TextView
+                    android:id="@+id/cfm_ward_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#777"
+                    android:text="WARD NAME"
+                    android:gravity="start"
+                    android:layout_marginStart="5dp"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="0dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    >
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/cancel_facility_confirmation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/btn_rounded_grey_blue"
+                        android:clickable="true"
+                        android:text="@string/action_cancel"
+                        android:textAllCaps="false"
+                        android:textColor="@color/orange_700"
+                        android:textSize="16dp" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/action_facility_confirmation_save"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/activity_horizontal_margin"
+                        android:background="@drawable/btn_rounded_primary"
+                        android:clickable="true"
+                        android:text="@string/action_facility_confirmation"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="16dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</LinearLayout>
+

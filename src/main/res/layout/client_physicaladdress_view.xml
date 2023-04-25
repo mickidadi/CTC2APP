@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:padding="@dimen/spacing_small"
+        android:scrollbars="none"
+        android:scrollingCache="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="2dp"
+            app:cardUseCompatPadding="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_medium"
+            android:padding="@dimen/spacing_medium"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Council"
+                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/grey_60" />
+            <TextView
+                android:id="@+id/councilView"
+                style="@style/EditText.Flat.Grey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Siha DC"
+                android:paddingTop="@dimen/spacing_small"
+                android:paddingLeft="@dimen/spacing_middle"
+                android:paddingRight="@dimen/spacing_middle"
+                android:paddingBottom="@dimen/spacing_large"
+                android:layout_marginBottom="@dimen/spacing_medium"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/grey_5" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Division"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/grey_60" />
+            <TextView
+                android:id="@+id/divisionView"
+                style="@style/EditText.Flat.Grey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_medium"
+               android:text="Siha Mashariki"
+                android:paddingTop="@dimen/spacing_small"
+                android:paddingLeft="@dimen/spacing_middle"
+                android:paddingRight="@dimen/spacing_middle"
+                android:paddingBottom="@dimen/spacing_large"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/grey_5" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:text="Ward"
+                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/grey_60" />
+            <TextView
+                android:id="@+id/wardView"
+                style="@style/EditText.Flat.Grey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_medium"
+                android:text="Siha"
+                android:paddingTop="@dimen/spacing_small"
+                android:paddingLeft="@dimen/spacing_middle"
+                android:paddingRight="@dimen/spacing_middle"
+                android:paddingBottom="@dimen/spacing_large"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/grey_5" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:text="Street/Village"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/grey_60" />
+            <TextView
+                android:id="@+id/villageView"
+                style="@style/EditText.Flat.Grey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_medium"
+                android:text="Lawate"
+                android:paddingTop="@dimen/spacing_small"
+                android:paddingLeft="@dimen/spacing_middle"
+                android:paddingRight="@dimen/spacing_middle"
+                android:paddingBottom="@dimen/spacing_large"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/grey_5" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:textStyle="bold"
+                android:text="Street/Village Chairperson"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/grey_60" />
+
+            <TextView
+                android:id="@+id/villageChairpersonView"
+                style="@style/EditText.Flat.Grey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/spacing_small"
+                android:paddingLeft="@dimen/spacing_middle"
+                android:paddingRight="@dimen/spacing_middle"
+                android:paddingBottom="@dimen/spacing_large"
+                android:layout_marginBottom="@dimen/spacing_medium"
+                android:text="Asha Mwashiri" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/grey_5" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:textStyle="bold"
+                android:text="Name of Ten Cell Leader"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/grey_60" />
+
+            <TextView
+                android:id="@+id/cellLeaderView"
+                style="@style/EditText.Flat.Grey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/spacing_small"
+                android:paddingLeft="@dimen/spacing_middle"
+                android:paddingRight="@dimen/spacing_middle"
+                android:paddingBottom="@dimen/spacing_large"
+                android:layout_marginBottom="@dimen/spacing_medium"
+                android:text="Hamira Juma" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/grey_5" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:textStyle="bold"
+                android:text="Name of Household head"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/grey_60" />
+
+            <TextView
+                android:id="@+id/householdHeadView"
+                style="@style/EditText.Flat.Grey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/spacing_small"
+                android:paddingLeft="@dimen/spacing_middle"
+                android:paddingRight="@dimen/spacing_middle"
+                android:paddingBottom="@dimen/spacing_large"
+                android:layout_marginBottom="@dimen/spacing_medium"
+                android:text="Kiwandacha Hamisi Ally" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/grey_5" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:textStyle="bold"
+                android:text="Contact of Household head"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/grey_60" />
+
+            <TextView
+                android:id="@+id/contacthouseholdHeadView"
+                style="@style/EditText.Flat.Grey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/spacing_small"
+                android:paddingLeft="@dimen/spacing_middle"
+                android:paddingRight="@dimen/spacing_middle"
+                android:paddingBottom="@dimen/spacing_large"
+                android:layout_marginBottom="@dimen/spacing_medium"
+                android:text="29312301231" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/grey_5" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:textStyle="bold"
+                android:text="Client Phone Number"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/grey_60" />
+            <TextView
+                android:id="@+id/contactClientPhoneView"
+                style="@style/EditText.Flat.Grey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/spacing_small"
+                android:paddingLeft="@dimen/spacing_middle"
+                android:paddingRight="@dimen/spacing_middle"
+                android:paddingBottom="@dimen/spacing_large"
+                android:layout_marginBottom="@dimen/spacing_medium"
+                android:text="9312912302113" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/grey_5" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:textStyle="bold"
+                android:text="SMS Consent"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/grey_60" />
+
+            <TextView
+                android:id="@+id/SMSConsentView"
+                style="@style/EditText.Flat.Grey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/spacing_small"
+                android:paddingLeft="@dimen/spacing_middle"
+                android:paddingRight="@dimen/spacing_middle"
+                android:paddingBottom="@dimen/spacing_large"
+                android:layout_marginBottom="@dimen/spacing_medium"
+                android:text="Yes" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/grey_5" />
+        </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.core.widget.NestedScrollView>
+
+        </LinearLayout>

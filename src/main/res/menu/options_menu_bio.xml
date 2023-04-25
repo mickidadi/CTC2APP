@@ -1,0 +1,29 @@
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:android="http://schemas.android.com/apk/res/android" >
+	<group android:id="@+id/action_group_common">
+		<item android:id="@+id/action_preferences"
+			android:icon="@android:drawable/ic_menu_preferences"
+			android:orderInCategory="9996"
+			android:title="@string/menu_preferences"
+			app:showAsAction="never" />
+
+		<item android:id="@+id/action_database"
+			android:icon="@android:drawable/ic_menu_upload"
+			android:orderInCategory="9997"
+			android:title="@string/menu_database"
+			app:showAsAction="never" />
+
+		<item android:id="@+id/action_activation"
+			android:icon="@android:drawable/ic_menu_preferences"
+			android:orderInCategory="9998"
+			android:title="@string/menu_activation"
+			app:showAsAction="never" />
+
+		<item android:id="@+id/action_about"
+			android:icon="@android:drawable/ic_menu_info_details"
+			android:orderInCategory="9999"
+			android:title="@string/menu_about"
+			app:showAsAction="never" />
+	</group>
+
+</menu>

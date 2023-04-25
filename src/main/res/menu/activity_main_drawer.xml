@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <group android:checkableBehavior="single">
+            <item
+                android:id="@+id/nav_home"
+                android:icon="@drawable/menu_ic_home"
+                android:title="@string/menuhome" />
+            <item
+                android:id="@+id/nav_registration"
+                android:icon="@drawable/ic_adds"
+                android:title="@string/menu_clients" />
+            <item
+                android:id="@+id/nav_maps"
+                android:icon="@drawable/menu_ic_map"
+                android:title="@string/menuhts" />
+            <item
+                android:id="@+id/nav_recency"
+                android:icon="@drawable/menu_ic_pok"
+                android:title="@string/menurecencytesting" />
+            <item
+                android:id="@+id/nav_ctc"
+                android:icon="@drawable/menu_ic_photo"
+                android:title="@string/menu_ctc" />
+            <item
+                android:id="@+id/nav_covid"
+                android:icon="@drawable/menu_ic_photo"
+                android:title="@string/menu_covid" />
+            <item
+                android:id="@+id/nav_pharmacy"
+                android:icon="@drawable/menu_ic_photo"
+                android:title="@string/menu_pharmacy" />
+            <item
+                android:id="@+id/nav_data_sync"
+                android:icon="@drawable/menu_ic_photo"
+                android:title="@string/menu_data_sync" />
+
+            </group>
+      <item android:title="Setting">
+        <menu>
+
+            <item
+                android:id="@+id/nav_log"
+                android:icon="@drawable/ic_lock"
+                android:title="@string/logout" />
+        </menu>
+        </item>
+
+    </menu>
+
+
+
+

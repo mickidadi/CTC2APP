@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:scrollbars="none"
+        android:scrollingCache="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/app_bar_layouts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey_3"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/spacing_mlarge"
+                    android:paddingRight="@dimen/spacing_mlarge">
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/image"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/user"
+                        app:civ_border="true"
+                        app:civ_border_color="@color/grey_10"
+                        app:civ_border_width="2dp"
+                        app:civ_shadow="true"
+                        app:civ_shadow_radius="0dp" />
+
+                    <View
+                        android:layout_width="@dimen/spacing_large"
+                        android:layout_height="0dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_middle"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/profile_client_fullName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mickidadi Kosiyanga"
+                            android:textColor="@color/black"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                            app:fontFamily="sans-serif-medium" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_small"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/profile_client_gender"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Male"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                                android:textColor="@android:color/black"
+                                 />
+                            <View
+                                android:layout_width="@dimen/spacing_small"
+                                android:layout_height="0dp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="|"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                                android:textColor="@android:color/black"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="32yrs"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                                android:textColor="@color/black" />
+                            <View
+                                android:layout_width="@dimen/spacing_small"
+                                android:layout_height="0dp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="|"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                                android:textColor="@android:color/black"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Dar es Salaam"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                                android:textColor="@color/black" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:paddingBottom="10dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:gravity="center"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp"
+                                    android:background="@drawable/circular_grey_bordersolid"
+                                    android:padding="10dp"
+                                    android:src="@drawable/ic_edit_btn" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="2dp"
+                                        android:text="@string/edit"
+                                        android:textColor="@color/black"
+                                        android:textSize="12sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:gravity="center"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:id="@+id/capture_finger_print"
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp"
+                                    android:background="@drawable/circular_grey_bordersolid"
+                                    android:padding="10dp"
+                                    android:src="@drawable/menu_finger" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Finger"
+                                        android:textColor="@color/black"
+                                        android:textSize="12sp"
+                                        />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+                   <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                    </LinearLayout>
+
+                </LinearLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+             <include
+                    layout="@layout/fragment_client_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

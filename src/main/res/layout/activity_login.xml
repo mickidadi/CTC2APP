@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        app:srcCompat="@mipmap/ic_tanzania_logo" />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="40px"
+
+        android:id="@+id/textView3_app"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name_header"
+        android:textSize="25dp"
+        android:textColor="@color/colorPrimaryDark"/>
+    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+        android:id="@+id/facilityLoginSpinners"
+        android:layout_marginTop="@dimen/nav_header_vertical_spacing"
+        android:layout_width="320dp"
+        android:layout_height="45dp"
+        android:entries="@array/planets"
+        app:hintText="SELECT FACILITY"/>
+    <EditText
+        android:layout_marginTop="40dp"
+        android:id="@+id/usernames"
+        android:padding="10dp"
+        android:layout_width="320dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:background="#44000000"
+        android:hint="Username"
+        android:textSize="16dp"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorWhite"
+        android:drawableLeft="@drawable/ic_account_box"
+        android:drawablePadding="6dp"
+        android:selectAllOnFocus="true"/>
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:id="@+id/passwords"
+        android:padding="10dp"
+        android:layout_width="320dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:background="#44000000"
+        android:hint="Password"
+        android:textSize="16dp"
+        android:textColorHint="@color/colorWhite"
+        android:textColor="@color/colorWhite"
+        android:drawableLeft="@drawable/ic_lock_outline"
+        android:drawablePadding="6dp"
+
+        android:imeActionLabel="@string/action_sign_in_short"
+        android:imeOptions="actionDone"
+        android:selectAllOnFocus="true"/>
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:id="@+id/logins"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorSoftBlue2"
+        android:textSize="16dp"
+        android:textAllCaps="false"
+        android:enabled="true"
+        android:text="@string/action_login" />
+
+    <TextView
+        android:id="@+id/facilityRegisterAccounts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:clickable="true"
+        android:contextClickable="true"
+        android:linksClickable="true"
+        android:longClickable="true"
+        android:text="@string/action_register"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16dp" />
+
+</LinearLayout>

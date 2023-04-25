@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ScrollView android:layout_marginTop="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView">
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/clientId"
+                    android:hint="Client Id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/firstName"
+                    android:hint="First Name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/middleName"
+                    android:hint="Middle Name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/lastName"
+                    android:hint="Last Name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/sexView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sex"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/sex_radio_group"
+                android:text="Sex"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radio_male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+                    android:tag="sex_male"
+                    android:text="@string/t_male" />
+
+                <RadioButton
+                    android:id="@+id/radio_female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:tag="sex_female"
+                    android:text="@string/t_female" />
+
+            </RadioGroup>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/dateOfBirth"
+                    android:hint="Date Of Birth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/referenceCode"
+                    android:hint="Reference Code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/facilityId"
+                    android:hint="Facility"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="388dp"
+                android:layout_height="145dp"
+                android:layout_margin="@dimen/activity_horizontal_margin">
+
+                <Button
+                    android:id="@+id/cancel_button_client"
+                    android:layout_width="160dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#000000"
+                    android:clickable="true"
+                    android:text="@string/action_cancel"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="16dp" />
+
+                <Button
+                    android:id="@+id/button_save_client"
+                    android:layout_width="140dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/colorSoftBlue2"
+                    android:clickable="true"
+                    android:text="@string/action_save"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="16dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

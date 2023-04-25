@@ -1,0 +1,21 @@
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:android="http://schemas.android.com/apk/res/android" >
+	<group android:id="@+id/action_group_common">
+		<item android:id="@+id/action_new_device_manager"
+			android:icon="@android:drawable/ic_menu_preferences"
+			android:orderInCategory="9996"
+			android:visible="false"
+			android:title="@string/msg_create"
+			app:showAsAction="never" />
+		<item android:id="@+id/action_connect"
+			android:icon="@android:drawable/ic_menu_upload"
+			android:orderInCategory="9997"
+			android:title="@string/msg_connect"
+			app:showAsAction="never" />
+		<item android:id="@+id/action_activate"
+			android:icon="@android:drawable/ic_menu_edit"
+			android:orderInCategory="9998"
+			android:title="@string/msg_activate"
+			app:showAsAction="never" />
+	</group>
+</menu>

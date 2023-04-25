@@ -1,0 +1,3 @@
+rootProject.name = 'CTC2-MOBILEAPP'
+include 'samples-utils'
+project(':samples-utils').projectDir = new File("../../../Common/Android/utils")

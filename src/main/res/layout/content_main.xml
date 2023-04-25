@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:id="@+id/total_count_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total Records:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/grey_60" />
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/selectableItemBackground"
+        android:padding="5dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="-34dp"
+        tools:listitem="@layout/client_recyclerview_layout" />
+
+</LinearLayout>

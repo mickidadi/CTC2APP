@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="client_profile_pic_width">120</dimen>
+    <dimen name="client_profile_pic_height">130</dimen>
+    <dimen name="profile_dot_separator_margin">3</dimen>
+</resources>
