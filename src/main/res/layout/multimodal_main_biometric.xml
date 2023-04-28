@@ -4,7 +4,7 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
-	android:background="@color/md_teal_100"
+	android:background="@color/grey"
 	android:orientation="vertical">
 
 	<androidx.cardview.widget.CardView
@@ -28,10 +28,22 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:orientation="vertical">
+				<TextView
+					android:id="@+id/finger_label_clientName"
+					style="@style/EditText.Flat.Grey"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="Mickidadi Kosiyanga"
+					android:paddingTop="@dimen/spacing_small"
+					android:paddingLeft="@dimen/spacing_middle"
+					android:paddingRight="@dimen/spacing_middle"
+					android:paddingBottom="@dimen/spacing_large"
+					android:layout_marginBottom="@dimen/spacing_medium"
+					/>
 				<LinearLayout
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:layout_marginTop="@dimen/spacing_large"
+					android:layout_marginTop="@dimen/spacing_small"
 					android:orientation="horizontal">
 
 					<LinearLayout
@@ -39,21 +51,19 @@
 						android:layout_height="wrap_content"
 						android:layout_weight="1"
 						android:orientation="vertical">
-                    <TextView
+
+						<TextView
 							android:id="@+id/finger_counter"
 							style="@style/EditText.Flat.Grey"
-						    android:text="0"
-						    android:textSize="24dip"
-				           	android:paddingTop="5dip"
-						    android:textColor="@color/green_500"
 							android:layout_width="match_parent"
-							android:layout_height="@dimen/spacing_xmlarge"
-						    android:gravity="center"
+							android:layout_height="wrap_content"
 							android:background="@drawable/edit_text_round_bg_white"
-							android:minHeight="@dimen/spacing_xmlarge"
+							android:gravity="center"
 							android:paddingLeft="@dimen/spacing_large"
 							android:paddingRight="@dimen/spacing_middle"
-							/>
+							android:text="0"
+							android:textColor="@color/green_500"
+							android:textSize="19dip" />
 
 					</LinearLayout>
 
@@ -70,49 +80,30 @@
 							android:id="@+id/cfm_CTCCode"
 							style="@style/EditText.Flat.Grey"
 							android:layout_width="match_parent"
-							android:layout_height="@dimen/spacing_xmlarge"
-							android:background="@drawable/edit_text_round_bg_white"
-							android:minHeight="@dimen/spacing_xmlarge"
-							android:paddingLeft="@dimen/spacing_middle"
-							android:paddingRight="@dimen/spacing_middle"
+							android:layout_height="wrap_content"
+							android:layout_marginBottom="@dimen/spacing_small"
 							/>
-
 					</LinearLayout>
 
 				</LinearLayout>
-				<TextView
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginBottom="@dimen/spacing_medium"
-					android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-					android:textColor="@color/grey_60" />
-				<TextView
-					android:id="@+id/finger_label_clientName"
-					style="@style/EditText.Flat.Grey"
+
+				<View
 					android:layout_width="match_parent"
-					android:layout_height="@dimen/spacing_xmlarge"
-					android:background="@drawable/edit_text_round_bg_white"
-					android:minHeight="@dimen/spacing_xmlarge"
-					android:paddingLeft="@dimen/spacing_middle"
-					android:paddingRight="@dimen/spacing_middle"
-					/>
-           	<TextView
+					android:layout_height="2dp"
+					android:background="@color/white" />
+				 <ImageView
+					android:id="@+id/hand_image"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/left_finger_checkbox"
+					android:layout_margin="@dimen/spacing_small"
+					android:src="@mipmap/left_hand_empty" />
+				<TextView
 					android:id="@+id/finger_label_value"
 					style="@style/EditText.Flat.Grey"
 					android:layout_width="match_parent"
 					android:layout_marginTop="@dimen/spacing_medium"
 					android:layout_height="@dimen/spacing_xmlarge"
-					android:background="@drawable/edit_text_round_bg_white"
-					android:minHeight="@dimen/spacing_xmlarge"
-					android:paddingLeft="@dimen/spacing_middle"
-					android:paddingRight="@dimen/spacing_middle"
-					/>
-                  <TextView
-					android:id="@+id/finger_label_quality"
-					style="@style/EditText.Flat.Grey"
-					android:layout_width="match_parent"
-					android:layout_height="@dimen/spacing_xmlarge"
-					android:layout_marginTop="@dimen/spacing_medium"
 					android:background="@drawable/edit_text_round_bg_white"
 					android:minHeight="@dimen/spacing_xmlarge"
 					android:paddingLeft="@dimen/spacing_middle"

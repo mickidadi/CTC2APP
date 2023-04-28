@@ -17,6 +17,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.FrameLayout.LayoutParams;
 import android.widget.ImageView;
@@ -24,8 +25,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.google.android.material.checkbox.MaterialCheckBox;
 import com.neurotec.biometrics.NBiometricOperation;
 import com.neurotec.biometrics.NBiometricStatus;
 import com.neurotec.biometrics.NBiometricTask;
@@ -65,6 +68,7 @@ import com.ucc.ctc.util.IOUtils;
 import com.ucc.ctc.util.NImageUtils;
 import com.ucc.ctc.util.ResourceUtils;
 import com.ucc.ctc.utils.Finger;
+import com.ucc.ctc.utils.Util;
 import com.ucc.ctc.viewsModel.ClientBiometricViewModel;
 
 import java.io.File;
@@ -89,9 +93,7 @@ public final class FingerClientActivity extends BiometricActivity {
 	private List<NFRecord> mFingers;
 	private List<NERecord> mIris;
 	private List<NSRecord> mVoice;
-
 	private EditText mSubjectId;
-
 	private TextView mFaceCounter;
 	private TextView mFingerCounter;
 	private TextView mIrisCounter;
@@ -115,7 +117,7 @@ public final class FingerClientActivity extends BiometricActivity {
 
 	private NFingerView mFingerView;
 	private Bitmap mDefaultBitmap;
-	private TextView mStatus,finger_label_value,finger_label_quality,finger_label_clientName;
+	private TextView mStatus,finger_label_value,finger_label_quality,finger_label_clientName,cfm_CTCCode;
 	private ImageView handImage;
 	private Map<String, NFPosition> mFingerPositions;
 	private LinearLayout captureControls;
@@ -124,6 +126,7 @@ public final class FingerClientActivity extends BiometricActivity {
 	ClientBiometricViewModel clientBiometricViewModel;
 	private String clientName;
 	private String ClientId ;
+
 	// ===========================================================
 	// Private methods
 	// ===========================================================
@@ -230,21 +233,26 @@ public final class FingerClientActivity extends BiometricActivity {
 		mFingerCounter = (TextView) findViewById(R.id.finger_counter);
 		//mIrisCounter = (TextView) findViewById(R.id.iris_counter);
 		//mVoiceCounter = (TextView) findViewById(R.id.voice_counter);
+		LinearLayout left_container = findViewById(R.id.left_fingers_checkbox);
+		List<String> selectedItems_left;
+		LinearLayout right_container = findViewById(R.id.right_fingers_checkbox);
 		// ===========================================================
 		// Protected methods
 		// ===========================================================
 		try {
+
 			PreferenceManager.setDefaultValues(this, R.xml.finger_preferences, false);
 			LinearLayout layout = ((LinearLayout) findViewById(R.id.multimodal_biometric_layout));
 			captureControls = (LinearLayout) findViewById(R.id.multimodal_capture_controls);
-
 			successControls = (LinearLayout) findViewById(R.id.multimodal_success_controls);
 			stopControls = (LinearLayout) findViewById(R.id.multimodal_stop_controls);
 			handImage = findViewById(R.id.hand_image);
 			finger_label_value=findViewById( R.id.finger_label_value );
-			finger_label_quality=findViewById( R.id.finger_label_quality );
+		//	finger_label_quality=findViewById( R.id.finger_label_quality );
 			finger_label_clientName=findViewById( R.id.finger_label_clientName );
-			finger_label_clientName.setText( clientName+" Client Id :"+ClientId);
+			finger_label_clientName.setText(clientName);
+			cfm_CTCCode=findViewById( R.id.cfm_CTCCode );
+			cfm_CTCCode.setText(ClientId);
 			mFingerPositions = new HashMap<String, NFPosition>();
 
 			mFingerPositions.put(MultiModalActivity.toLowerCase(NFPosition.UNKNOWN.name()), NFPosition.UNKNOWN);
@@ -259,7 +267,105 @@ public final class FingerClientActivity extends BiometricActivity {
 			mFingerPositions.put(MultiModalActivity.toLowerCase(NFPosition.RIGHT_MIDDLE_FINGER.name()), NFPosition.RIGHT_MIDDLE_FINGER);
 			mFingerPositions.put(MultiModalActivity.toLowerCase(NFPosition.RIGHT_INDEX_FINGER.name()), NFPosition.RIGHT_INDEX_FINGER);
 			mFingerPositions.put(MultiModalActivity.toLowerCase(NFPosition.RIGHT_THUMB.name()), NFPosition.RIGHT_THUMB);
+                //custom  finger
+			selectedItems_left = new ArrayList<>();
+			for (String item_left : Util.getLeftFinger()) {
+				MaterialCheckBox checkBox_left = new MaterialCheckBox(this);
+				checkBox_left.setText(item_left);
+				checkBox_left.setTextSize( 11 );
+				left_container.addView(checkBox_left);
 
+				checkBox_left.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+					@Override
+					public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+						if (isChecked) {
+							// selectedItems_left.add(item_left);
+							selectedItems_left.add(item_left);
+							Finger selectedFinger = Finger.valueOf(item_left); // Replace with code to get selected finger
+							finger_label_value.setText(item_left);
+							switch (selectedFinger) {
+
+								case LEFT_THUMB:
+									handImage.setImageResource(R.mipmap.left_thumb_finger );
+									//mDefaultBitmap = BitmapFactory.decodeResource(getResources(),R.mipmap.left_thumb_finger);
+									break;
+								case LEFT_INDEX_FINGER:
+									handImage.setImageResource(R.mipmap.left_index_finger );
+									//mDefaultBitmap = BitmapFactory.decodeResource(getResources(),R.mipmap.left_index_finger);
+									break;
+								case LEFT_MIDDLE_FINGER:
+									handImage.setImageResource(R.mipmap.left_middle_finger );
+									//mDefaultBitmap = BitmapFactory.decodeResource(getResources(),R.mipmap.left_middle_finger);
+									break;
+								case LEFT_RING_FINGER:
+									handImage.setImageResource(R.mipmap.left_ring_finger );
+									//mDefaultBitmap = BitmapFactory.decodeResource(getResources(),R.mipmap.left_ring_finger);
+									break;
+								case LEFT_PINKY_FINGER:
+									//mDefaultBitmap = BitmapFactory.decodeResource(getResources(),R.mipmap.left_pinky_finger);
+									handImage.setImageResource(R.mipmap.left_pinky_finger );
+									break;
+							}
+						} else {
+							// Find the index of the item with value
+							if(selectedItems_left.size()!=0) {
+								int indexToRemove = selectedItems_left.indexOf(item_left);
+								// Remove the item at that index
+								selectedItems_left.remove( indexToRemove );
+							}
+							handImage.setImageResource(R.mipmap.left_hand_empty);
+							//mDefaultBitmap = BitmapFactory.decodeResource(getResources(),R.mipmap.left_hand_empty);
+							finger_label_value.setText("");
+						}
+					}
+				});
+			}
+			//End finger
+			//Start Right Finger
+			for (String item_right : Util.getRightFinger()) {
+				MaterialCheckBox checkBox_right = new MaterialCheckBox(this);
+				checkBox_right.setText(item_right);
+				checkBox_right.setTextSize( 11 );
+				right_container.addView(checkBox_right);
+
+				checkBox_right.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+					@Override
+					public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+						if (isChecked) {
+							selectedItems_left.add(item_right);
+							Finger selectedFinger = Finger.valueOf(item_right); // Replace with code to get selected finger
+							finger_label_value.setText(item_right);
+							switch (selectedFinger) {
+								case RIGHT_THUMB:
+									handImage.setImageResource(R.mipmap.right_thumb_finger );
+									break;
+								case RIGHT_INDEX_FINGER:
+									handImage.setImageResource(R.mipmap.right_index_finger );
+									break;
+								case RIGHT_MIDDLE_FINGER:
+									handImage.setImageResource(R.mipmap.right_middle_finger );
+									break;
+								case RIGHT_RING_FINGER:
+									handImage.setImageResource(R.mipmap.right_ring_finger );
+									break;
+								case RIGHT_PINKY_FINGER:
+									handImage.setImageResource(R.mipmap.right_pinky_finger );
+									break;
+							}
+						} else {
+							// Find the index of the item with value
+							if(selectedItems_left.size()!=0) {
+								int indexToRemove = selectedItems_left.indexOf(item_right);
+								// Remove the item at that index
+								selectedItems_left.remove( indexToRemove );
+							}
+							handImage.setImageResource(R.mipmap.right_hands_empty);
+							finger_label_value.setText("");
+						}
+						Log.d("MyTag", "My array: " +selectedItems_left);
+					}
+				});
+			}
 			mFingerView = new NFingerView(this);
 			layout.addView(mFingerView);
 
@@ -289,7 +395,7 @@ public final class FingerClientActivity extends BiometricActivity {
 					String fingerId = "UN";
 					String finger_label =null;
 					for (NFRecord record :subject.getTemplate().getFingers().getRecords()) {
-					  finger_label_quality.setText("Template Quality :"+record.getQuality());
+					 // finger_label_quality.setText("Template Quality :"+record.getQuality());
 					  finger_label_value.setText("Position :"+record.getPosition().name());
 						 count+=1;
 						quality= record.getQuality();
@@ -333,7 +439,8 @@ public final class FingerClientActivity extends BiometricActivity {
 			setPosition.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View view) {
-					setFingerPosition();
+					//setFingerPosition();
+					drawer.openDrawer( GravityCompat.END);
 				}
 			});
 

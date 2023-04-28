@@ -137,9 +137,9 @@ public class MainActivity extends AppCompatActivity
         }
         String[] neededPermissions = getNotGrantedPermissions();
         if(neededPermissions.length == 0) {
-           // new MainActivity.InitializationTask().execute();
+            new MainActivity.InitializationTask().execute();
         } else {
-          //  requestPermissions(neededPermissions);
+            requestPermissions(neededPermissions);
         }
         //LOGOUT btn_close_filter
        ImageButton btn_close_filter = findViewById( R.id.btn_close_filter);

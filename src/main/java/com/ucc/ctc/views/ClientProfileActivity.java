@@ -68,7 +68,7 @@ public class ClientProfileActivity extends AppCompatActivity implements  ClientP
         String sex = intent.getStringExtra("sex");
         String clientId = intent.getStringExtra("clientId");
         profile_client_fullName.setText( fullName );
-        gender.setText( sex+" "+clientId );
+        gender.setText(sex);
         //profile_clientId.setText(clientId );
         clientTreatmentSupporterViewModel = ViewModelProviders.of(this).get(ClientTreatmentSupporterViewModel.class);
          //End

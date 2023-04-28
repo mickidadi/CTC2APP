@@ -204,6 +204,7 @@ public final class FingerActivity extends BiometricsActivity {
 			setPosition.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View view) {
+
 					setFingerPosition();
 				}
 			});

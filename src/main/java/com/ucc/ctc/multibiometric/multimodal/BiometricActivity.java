@@ -203,7 +203,7 @@ public abstract class BiometricActivity extends BaseActivity implements Enrollme
 			Button mLoadButton = (Button) findViewById(R.id.multimodal_button_load);
 			drawer = findViewById(R.id.drawer_finger_layout);
 			// open drawer at start
-			drawer.openDrawer(GravityCompat.END);
+			//drawer.openDrawer(GravityCompat.END);
 			mLoadButton.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
