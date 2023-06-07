@@ -34,7 +34,7 @@ public class ClientCreateActivity extends AppCompatActivity {
     private EditText lastName;
     private EditText clientId;
     private RadioGroup sex_radio_group,radioGroupfinger;
-    private EditText dateOfBirth;
+    private TextView dateOfBirth;
     private Button cancel,mSaveBtn;
     private ImageButton bt_close;
     private CreateClientDialog.CreateClientListener mListener;
@@ -72,7 +72,7 @@ public class ClientCreateActivity extends AppCompatActivity {
         });
         // radioGroup =view.findViewById(R.id.radioGroup);
         clientId=findViewById(R.id.clientId);
-       // dateOfBirth=findViewById( R.id.dateOfBirth);
+        dateOfBirth=findViewById( R.id.dateOfBirth);
         //finger Print
         //fingerprint=(RadioGroup)view.findViewById( R.id.fingerprint_radio_group);
         radioGroupfinger = findViewById(R.id.fingerprint_radio_group);
@@ -151,7 +151,7 @@ public class ClientCreateActivity extends AppCompatActivity {
                 String lname = lastName.getText().toString();
                 String clientIds=clientId.getText().toString();
                 String csex=selectedRadioButtonTextSex;
-                String cdateOfBirth=dateOfBirth.getText().toString();
+                String cdateOfBirth=dateInput.getText().toString();
                 String creferenceCode="";
                 //Update facility data info
                 String cfacilityId=facilityId;

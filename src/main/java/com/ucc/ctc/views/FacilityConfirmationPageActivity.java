@@ -37,7 +37,7 @@ public class FacilityConfirmationPageActivity extends AppCompatActivity {
        // Toolbar toolbar = findViewById(R.id.toolbar);
        // setSupportActionBar(toolbar);
        // getSupportActionBar().setTitle("FACILITY CONFIRMATION PAGE");
-        final ImageButton cancel =findViewById( R.id.cancel_facility_confirmation );
+        //final ImageButton cancel =findViewById( R.id.cancel_facility_confirmation );
         final Button saveFacility=findViewById( R.id.action_facility_confirmation_save );
         //get text item
         TextView cfm_facility_name =findViewById( R.id.cfm_facility_name );
@@ -76,16 +76,7 @@ public class FacilityConfirmationPageActivity extends AppCompatActivity {
                 }
             }
         } );
-       cancel.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intentCancel=new Intent(FacilityConfirmationPageActivity.this,FacilitySettingActivity.class);
-                startActivity( intentCancel );
-
-
-            }
-        } );
-        saveFacility.setOnClickListener( new View.OnClickListener() {
+ saveFacility.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
