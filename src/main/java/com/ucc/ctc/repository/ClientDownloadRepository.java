@@ -34,7 +34,7 @@ public class ClientDownloadRepository {
                 .addInterceptor(loggingInterceptor)
                 .build();
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://technolemon.com/")
+                .baseUrl("http://10.45.1.102/")
                 .addConverterFactory( GsonConverterFactory.create())
                 .client(client)
                 .build();

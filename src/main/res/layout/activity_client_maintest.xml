@@ -22,7 +22,11 @@
         android:layout_margin="16dp"
         android:src="@drawable/ic_adds"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:backgroundTint="@color/primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@null"
+        />
+
     <androidx.appcompat.widget.SearchView
         android:id="@+id/my_search_view"
         android:layout_width="match_parent"

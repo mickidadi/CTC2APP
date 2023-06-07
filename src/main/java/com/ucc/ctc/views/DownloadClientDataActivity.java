@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.ucc.ctc.R;
@@ -21,6 +22,7 @@ import com.ucc.ctc.models.AdminHierarchyRootRemote;
 import com.ucc.ctc.models.ClientRemote;
 import com.ucc.ctc.models.ClientRootRemote;
 import com.ucc.ctc.models.ClientVisitRemote;
+import com.ucc.ctc.models.UploadClientRemoteResponse;
 import com.ucc.ctc.models.entity.AdminHierarchyDivisionEntity;
 import com.ucc.ctc.models.entity.AdminHierarchyEntity;
 import com.ucc.ctc.models.entity.AdminHierarchyExtendedEntity;
@@ -35,84 +37,67 @@ import com.ucc.ctc.viewsModel.AdminHierarchyViewModel;
 import com.ucc.ctc.viewsModel.ClientDownloadViewModel;
 import com.ucc.ctc.viewsModel.ClientViewModel;
 import com.ucc.ctc.viewsModel.PatientVisitViewModel;
+import com.ucc.ctc.viewsModel.UploadClientViewModel;
 
 import java.util.List;
 
 public class DownloadClientDataActivity extends AppCompatActivity {
-private ClientDownloadViewModel clientDownloadViewModel;
-private AdminHierarchyRemoteViewModel adminHierarchyRemoteViewModel;
-private AdminHierarchyDivisionRemoteViewModel adminHierarchyDivisionRemoteViewModel;
-private AdminHierarchyExtendedRemoteViewModel adminHierarchyExtendedRemoteViewModel;
 
+    private ClientDownloadViewModel clientDownloadViewModel;
+    private ClientViewModel clientViewModel;
+    private PatientVisitViewModel visitViewModel;
+    private UploadClientViewModel uploadClientViewModel;
+    private ProgressDialog progressDialog;
+
+    private AdminHierarchyRemoteViewModel adminHierarchyRemoteViewModel;
+    private AdminHierarchyDivisionRemoteViewModel adminHierarchyDivisionRemoteViewModel;
+    private AdminHierarchyExtendedRemoteViewModel adminHierarchyExtendedRemoteViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView( R.layout.activity_download_client_data);
-        Button download=findViewById( R.id.downloadClientData);
-        Button downloadAdminHierarchyData=findViewById( R.id.downloadAdminHierarchyData );
-        ClientViewModel clientViewModel=new ClientViewModel(getApplication());
-        PatientVisitViewModel visitViewModel=new PatientVisitViewModel(getApplication());
+        setContentView(R.layout.activity_download_client_data);
+
+        clientViewModel = new ViewModelProvider(this).get(ClientViewModel.class);
+        visitViewModel = new ViewModelProvider(this).get(PatientVisitViewModel.class);
+        uploadClientViewModel = new ViewModelProvider(this).get(UploadClientViewModel.class);
+
         AdminHierarchyViewModel adminHierarchyViewModel=new AdminHierarchyViewModel(getApplication());
         AdminHierarchyDivisionViewModel adminHierarchyDivisionViewModel=new AdminHierarchyDivisionViewModel(getApplication());
         AdminHierarchyExtendedViewModel adminHierarchyExtendedViewModel=new AdminHierarchyExtendedViewModel(getApplication());
-        ProgressDialog progressDialog = new ProgressDialog(this);
+
+        progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Download Loading...");
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        // In your activity or fragment
-        download.setOnClickListener( new View.OnClickListener() {
+
+        Button download = findViewById(R.id.downloadClientData);
+        Button uploadClientData = findViewById(R.id.uploadClientData);
+
+        download.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            progressDialog.show();
-            String username="2312313";
-            String password="3432423";
-                clientDownloadViewModel = ViewModelProviders.of(DownloadClientDataActivity.this ).get( ClientDownloadViewModel.class );
-                clientDownloadViewModel.getRemoteClient( username,password );
-                clientDownloadViewModel.getClientLiveData().observe( DownloadClientDataActivity.this, new Observer<ClientRootRemote>() {
+                progressDialog.show();
+                String username = "2312313";
+                String password = "3432423";
+
+                clientDownloadViewModel = new ViewModelProvider(DownloadClientDataActivity.this).get(ClientDownloadViewModel.class);
+                clientDownloadViewModel.getRemoteClient(username, password);
+                clientDownloadViewModel.getClientLiveData().observe(DownloadClientDataActivity.this, new Observer<ClientRootRemote>() {
                     @Override
                     public void onChanged(ClientRootRemote clientRootRemote) {
-                        Log.v("Welcome","Message IN ");
+                        progressDialog.dismiss();
                         if (clientRootRemote != null) {
-                            //Starting Processing
-                            List<ClientRemote> patientList =clientRootRemote.getClientInfoList();
-                     for (ClientRemote patient : patientList) {
-                         Log.v("Welcome","Message IN "+patient.getClientId());
-                        ClientEntity patientEntity = new ClientEntity(
-                                patient.getClientId(),
-                                patient.getFirstName(),
-                                patient.getMiddleName(),
-                                patient.getLastName(),
-                                patient.getSex(),
-                                patient.getDateOfBirth(),
-                                patient.getReferenceCode(),
-                                patient.getFacilityId(),
-                                ""
-                        );
-                        Log.v("Welcome","Message IN "+patientEntity.getFirstName());
-                        clientViewModel.insert(patientEntity);
+                            processClientData(clientRootRemote.getClientInfoList());
 
-                        for (ClientVisitRemote visit : patient.getVisitInfoList()) {
-                            PatientVisitEntity visitEntity = new PatientVisitEntity(
-                                    visit.getPatientId(),
-                                    visit.getVisitTypeCode(),
-                                    visit.getVisitDate(),
-                                    visit.getNumDaysDispensed()
-                            );
-                          visitViewModel.insert(visitEntity);
+                            Intent intentMessage = new Intent(DownloadClientDataActivity.this, ClientActivity.class);
+                            startActivity(intentMessage);
                         }
                     }
-                    //end processing
-
-                    Intent intentMessage = new Intent( DownloadClientDataActivity.this, ClientActivity.class );
-                    startActivity( intentMessage);
-                       }
-                    }
-                } );
-
+                });
             }
-        } );
-         // Perform your background task here
+        });
         // Download AdminHierarchy
+        Button downloadAdminHierarchyData=findViewById( R.id.downloadAdminHierarchyData );
         downloadAdminHierarchyData.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -171,7 +156,7 @@ private AdminHierarchyExtendedRemoteViewModel adminHierarchyExtendedRemoteViewMo
                                         ,adminHierarchyRemote.getRowVersion(),adminHierarchyRemote.getChangeTrackStatus(),
                                         adminHierarchyRemote.getRecGUID(),adminHierarchyRemote.getExportSessionId()
                                 );
-                                 Log.v("Welcome","Message IN "+adminHierarchyEntity.getCouncil());
+                                Log.v("Welcome","Message IN "+adminHierarchyEntity.getCouncil());
                                 adminHierarchyExtendedViewModel.insert(adminHierarchyEntity);
                             }
                             //end processing
@@ -204,7 +189,7 @@ private AdminHierarchyExtendedRemoteViewModel adminHierarchyExtendedRemoteViewMo
                                         adminHierarchyRemote.getRegionCode(),adminHierarchyRemote.getDistrictCode()
                                         ,adminHierarchyRemote.getWardName(),adminHierarchyRemote.getNBSWardCode()
                                 );
-                                 Log.v("Welcome","Message IN "+adminHierarchyEntity.getWardName());
+                                Log.v("Welcome","Message IN "+adminHierarchyEntity.getWardName());
                                 adminHierarchyDivisionViewModel.insert(adminHierarchyEntity);
                             }
                             //end processing
@@ -216,8 +201,47 @@ private AdminHierarchyExtendedRemoteViewModel adminHierarchyExtendedRemoteViewMo
 
             }
         } );
-     // progressDialog.dismiss();
-// Perform your background task here
+        // progressDialog.dismiss();
+        uploadClientData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressDialog.show();
 
+                uploadClientViewModel.sendDataToAPI().observe(DownloadClientDataActivity.this, new Observer<UploadClientRemoteResponse>() {
+                    @Override
+                    public void onChanged(UploadClientRemoteResponse payload) {
+                        Log.v("upload", payload.getFacilityId());
+                        progressDialog.dismiss();
+                    }
+                });
+            }
+        });
+    }
+
+    private void processClientData(List<ClientRemote> clientList) {
+        for (ClientRemote clientRemote : clientList) {
+            ClientEntity clientEntity = new ClientEntity(
+                    clientRemote.getClientId(),
+                    clientRemote.getFirstName(),
+                    clientRemote.getMiddleName(),
+                    clientRemote.getLastName(),
+                    clientRemote.getSex(),
+                    clientRemote.getDateOfBirth(),
+                    clientRemote.getReferenceCode(),
+                    clientRemote.getFacilityId(),
+                    ""
+            );
+            clientViewModel.insert(clientEntity);
+
+            for (ClientVisitRemote visit : clientRemote.getVisitInfoList()) {
+                PatientVisitEntity visitEntity = new PatientVisitEntity(
+                        visit.getPatientId(),
+                        visit.getVisitTypeCode(),
+                        visit.getVisitDate(),
+                        visit.getNumDaysDispensed()
+                );
+                visitViewModel.insert(visitEntity);
+            }
+        }
     }
 }

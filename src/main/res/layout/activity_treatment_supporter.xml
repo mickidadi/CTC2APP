@@ -213,13 +213,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/btn_rounded_grey_blue"
-            app:tint="@color/deep_orange_300"
-            android:text="Cancel"
-            android:textStyle="bold"
+            android:background="@drawable/btn_rounded_amber"
+            android:clickable="true"
+            android:text="@string/action_cancel"
             android:textAllCaps="false"
-            android:textColor="@color/red_600"
-            app:fontFamily="serif" />
+            android:textColor="@color/red_900"
+            android:textSize="16dp" />
 
 
         <View

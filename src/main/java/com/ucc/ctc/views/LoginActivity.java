@@ -47,6 +47,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     private String facilityName="facilityName";
     private FacilityViewModel facilityViewModel;
     private ClientViewModel clientViewModel;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

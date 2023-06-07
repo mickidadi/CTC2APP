@@ -5,24 +5,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 //tblClientBiometry
-/*
-    [ClientBiometryId] [bigint] IDENTITY(1,1) NOT NULL,
-	[BiometricSpecificationId] [int] NULL,
-	[BiometricTemplate] [varbinary](max) NULL,
-	[EntryDate] [datetime] NULL,
-	[RowVersion] [datetime] NULL,
-	[ClientId] [nvarchar](70) NULL,
-	[SessionId] [nvarchar](70) NULL,
-	[CentralReferenceCode] [nvarchar](64) NULL,
-	[IsDuplicate] [bit] NULL,
-	[Quality] [int] NULL,
-	[ActionTag] [tinyint] NULL,
-	[BiometricsRegOrigin] [tinyint] NULL,
-	[EntryTimeStamp] [datetime] NULL,
-	[RecGUID] [varchar](70) NULL,
-	[ChangeTrackStatus] [tinyint] NULL,
-	[ExportSessionId] [nvarchar](70) NULL,
- */
+
 @Entity(tableName ="tblClientBiometry")
 public class ClientBiometricEntity {
     @PrimaryKey(autoGenerate = true)
@@ -155,4 +138,5 @@ public class ClientBiometricEntity {
     public void setRecGUID(String recGUID) {
         this.recGUID = recGUID;
     }
+
 }

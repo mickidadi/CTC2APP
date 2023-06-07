@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -102,6 +103,10 @@ public abstract class BiometricActivity extends BaseActivity implements Enrollme
 				case CREATE_TEMPLATE: {
 					if (status == NBiometricStatus.OK) {
 						message = getString( R.string.msg_extraction_succeeded);
+						byte[] imgData = subject.getFingers().get(0).getImage().save().toByteArray();
+						byte[] templateData = subject.getTemplateBuffer().toByteArray();
+						Log.v( "Template data ","temp byte :"+ templateData.toString());
+						Log.v( "Template img data ","image byte :"+ imgData.toString());
 
 					} else if (task.getSubjects().size() > 0 && task.getSubjects().get(0).getFaces().size() > 0 && task.getStatus() == NBiometricStatus.TIMEOUT) {
 						message = getString(R.string.msg_extraction_failed, getString(R.string.msg_liveness_check_failed));
@@ -485,6 +490,7 @@ public abstract class BiometricActivity extends BaseActivity implements Enrollme
 			operations.addAll(additionalOperations);
 		}
 		NBiometricTask task = client.createTask(operations, subject);
+
 		client.performTask(task, NBiometricOperation.CREATE_TEMPLATE, completionHandler);
 		onOperationStarted(NBiometricOperation.CAPTURE);
 	}
@@ -498,7 +504,6 @@ public abstract class BiometricActivity extends BaseActivity implements Enrollme
 		client.performTask(task, NBiometricOperation.CREATE_TEMPLATE, completionHandler);
 		onOperationStarted(NBiometricOperation.CREATE_TEMPLATE);
 	}
-
 	public void extract(NSubject subject) {
 		if (subject == null) throw new NullPointerException("subject");
 		this.subject = subject;
@@ -542,4 +547,5 @@ public abstract class BiometricActivity extends BaseActivity implements Enrollme
 			onLicensesObtained();
 		}
 	}
+
 }

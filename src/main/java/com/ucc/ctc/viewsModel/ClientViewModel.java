@@ -8,6 +8,7 @@ import androidx.lifecycle.LiveData;
 
 import com.ucc.ctc.models.entity.ClientEntity;
 import com.ucc.ctc.repository.ClientRepository;
+import com.ucc.ctc.repository.DashboardRepository;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ public class ClientViewModel extends AndroidViewModel {
     private ClientRepository repository;
     private LiveData<List<ClientEntity>> allClients;
     private LiveData<List<String>> allClientName;
+
 
     public ClientViewModel(@NonNull Application application) {
         super(application);
@@ -44,17 +46,9 @@ public class ClientViewModel extends AndroidViewModel {
     public LiveData<List<ClientEntity>> getAllClients(){
         return allClients;
     }
-    public LiveData<List<String>> getAllClientName(){
-        return allClientName;
-    }
     public LiveData<List<ClientEntity>> getClientSearch(String clientId,String name){
 
         return repository.getAllClientSearch(clientId,name);
     }
-    /*public void getClientSearch(String clientId,String name) {
-        if (this.allClients!= null) {
 
-        }
-        allClients = repository.getAllClientSearch(clientId,name);
-    }*/
 }

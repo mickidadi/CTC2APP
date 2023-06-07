@@ -106,7 +106,7 @@ public class ClientFingerPrintActivity extends AppCompatActivity {
                             case LEFT_RING_FINGER:
                                 handImage.setImageResource(R.mipmap.left_ring_finger );
                                 break;
-                            case LEFT_PINKY_FINGER:
+                            case LEFT_LITTLE_FINGER:
                                 handImage.setImageResource(R.mipmap.left_pinky_finger );
                                 break;
                         }
@@ -149,7 +149,7 @@ public class ClientFingerPrintActivity extends AppCompatActivity {
                             case RIGHT_RING_FINGER:
                                 handImage.setImageResource(R.mipmap.right_ring_finger );
                                 break;
-                            case RIGHT_PINKY_FINGER:
+                            case RIGHT_LITTLE_FINGER:
                                 handImage.setImageResource(R.mipmap.right_pinky_finger );
                                 break;
                         }
@@ -158,7 +158,7 @@ public class ClientFingerPrintActivity extends AppCompatActivity {
                              if(selectedItems_right.size()!=0) {
                                  int indexToRemove = selectedItems_right.indexOf(item_right);
                                  // Remove the item at that index
-                                 selectedItems_right.remove( indexToRemove );
+                                 selectedItems_right.remove(indexToRemove );
                              }
                         handImage.setImageResource(R.mipmap.right_hands_empty);
                         finger_label_value.setText("");
@@ -340,7 +340,7 @@ public class ClientFingerPrintActivity extends AppCompatActivity {
             case RIGHT_RING_FINGER:
                 handImage.setImageResource(R.mipmap.right_ring_finger );
                 break;
-            case RIGHT_PINKY_FINGER:
+            case RIGHT_LITTLE_FINGER:
                 handImage.setImageResource(R.mipmap.right_pinky_finger );
                 break;
           case LEFT_THUMB:
@@ -355,7 +355,7 @@ public class ClientFingerPrintActivity extends AppCompatActivity {
           case LEFT_RING_FINGER:
               handImage.setImageResource(R.mipmap.left_ring_finger );
               break;
-          case LEFT_PINKY_FINGER:
+          case LEFT_LITTLE_FINGER:
               handImage.setImageResource(R.mipmap.left_pinky_finger );
               break;
         }

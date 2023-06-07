@@ -44,18 +44,34 @@ public class FacilitySearchRepository {
         }
         return instance;
     }
-    public LiveData<FacilitySearchResponse> getFacilityById(String hfrId) {
+    public LiveData<FacilitySearchResponse> getFacilityById(String url,String hfrId) {
+
         MutableLiveData<FacilitySearchResponse> data = new MutableLiveData<>();
+        // Create a new instance of HttpLoggingInterceptor
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+       // Add the loggingInterceptor to your OkHttpClient
+        OkHttpClient client = new OkHttpClient.Builder()
+                .addInterceptor(loggingInterceptor)
+                .build();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://"+url)
+                .addConverterFactory( GsonConverterFactory.create())
+                .client(client)
+                .build();
+        apiServices = retrofit.create( FacilitySearchServiceApi.class);
+
         apiServices.getFacility(hfrId).enqueue(new Callback<FacilitySearchResponse>() {
             @Override
             public void onResponse(Call<FacilitySearchResponse> call, Response<FacilitySearchResponse> response) {
-                Log.v("Test Mickidadi", "Mickidadi Responds" +response.body());
+                Log.v("Test ", "Respond " +response.body());
                 if (response.body() != null) {
                     data.setValue(response.body());
                 }
             }
-
-            @Override
+           @Override
             public void onFailure(Call<FacilitySearchResponse> call, Throwable t) {
                 data.setValue(null);
                 Log.v("Failed Mickidadi ", " View Repository " +t);

@@ -5,34 +5,37 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.ucc.ctc.R;
+import com.ucc.ctc.adapters.ClientRecyclerViewAdapter;
+import com.ucc.ctc.models.entity.ClientEntity;
+import com.ucc.ctc.viewsModel.ClientViewModel;
+import com.ucc.ctc.viewsModel.DashboardViewModel;
+
+import java.util.List;
 
 
 public class HomeFragment extends Fragment {
-
+    private DashboardViewModel clientViewModel;
+    private RecyclerView mRecyclerView;
+    private ClientRecyclerViewAdapter recyclerViewAdapter;
     ListView lst;
 
     String[] itemName = {
-            "Étoiles",
-            "Rocade",
-            "Viaduc",
-            "Métropole",
-            "Collines",
-            "Plage"
+            "Item1",
+
     };
 
     String[] itemDesc = {
-            "Admirer les étoiles dans un espace loin de la ville et se griller quelques guimauves autour d'un feu",
-            "Magnifique pont où l'on peut admirer le cours d'eau, conçu par les plus grands ingénieurs",
-            "Contourner la côte en passant par ce magnifique chemin digne de Vice City",
-            "Au cœur de la ville, avec ses flux et ses quartiers",
-            "Un endroit reculé caché entre des collines, idéal pour se ressourcer et se mettre au vert",
-            "Venir se baigner en famille ou avec ses amis et profiter du soleil pour s'amuser ou faire bronzette, sans oublier son maillot de bain"
+            "Descr"
     };
 
     int[] itemImg = {
@@ -49,8 +52,17 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
 
-        View inflate = inflater.inflate(R.layout.fragment_home,container, false);
-
-        return inflate;
+        View views = inflater.inflate(R.layout.fragment_home,container, false);
+        //Observe Client add
+        clientViewModel = ViewModelProviders.of(this).get( DashboardViewModel.class);
+        clientViewModel.getClientCount().observe(getViewLifecycleOwner(), new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer totalCount) {
+                 // Get the total count of records and display it in a TextView:
+                 TextView countTextView = views.findViewById(R.id.total_count_text_view);
+                countTextView.setText(""+totalCount);
+            }
+        });
+    return views;
     }
 }

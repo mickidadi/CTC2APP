@@ -19,11 +19,11 @@ public class FacilitySearchViewModel extends ViewModel {
         facilityRepository = FacilitySearchRepository.getInstance();
     }
 
-    public void init(String hfrId) {
+    public void init(String url,String hfrId) {
        /* if (this.facilityLiveData != null) {
             return;
         }*/
-        facilityLiveData = facilityRepository.getFacilityById( hfrId );
+        facilityLiveData = facilityRepository.getFacilityById( url,hfrId );
         Log.v("Test Mickidadi", "View Model Responds" +hfrId);
     }
 

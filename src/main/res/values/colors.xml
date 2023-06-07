@@ -6,7 +6,7 @@
     <color name="primaryBackground">#a6d1e7</color>
     <color name="white">#FFFFFF</color>
     <color name="light_gray">#FAFAFA</color>
-    <color name="colorPrimary">#1976D2</color>
+    <color name="colorPrimary">@color/colorTwitter</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#5159A5</color>
     <color name="colorWhite">#FFFFFF</color>

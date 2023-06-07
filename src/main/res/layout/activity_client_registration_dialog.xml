@@ -7,101 +7,99 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/grey_5"
         android:clipToPadding="false"
-        android:padding="@dimen/spacing_mlarge"
+        android:padding="@dimen/spacing_small"
         android:scrollbars="none"
         android:scrollingCache="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/spacing_middle"
+            android:visibility="visible"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="5dp">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="@dimen/spacing_large"
             android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_medium"
-                android:text="Client Id"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/grey_60" />
-
-            <EditText
-                 android:id="@+id/clientId"
-                style="@style/EditText.Flat.Grey"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/spacing_xmlarge"
-                android:background="@drawable/edit_text_round_bg_white"
-                android:minHeight="@dimen/spacing_xmlarge"
-                android:paddingLeft="@dimen/spacing_middle"
-                android:paddingRight="@dimen/spacing_middle"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_medium"
-                android:text="First Name"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/grey_60" />
-
-            <EditText
-                android:id="@+id/firstName"
-                style="@style/EditText.Flat.Grey"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/spacing_xmlarge"
-                android:background="@drawable/edit_text_round_bg_white"
-                android:minHeight="@dimen/spacing_xmlarge"
-                android:paddingLeft="@dimen/spacing_middle"
-                android:paddingRight="@dimen/spacing_middle"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_medium"
-                android:text="Middle Name"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/grey_60" />
-
-            <EditText
-                android:id="@+id/middleName"
-                style="@style/EditText.Flat.Grey"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/spacing_xmlarge"
-                android:background="@drawable/edit_text_round_bg_white"
-                android:minHeight="@dimen/spacing_xmlarge"
-                android:paddingLeft="@dimen/spacing_middle"
-                android:paddingRight="@dimen/spacing_middle"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_medium"
+                android:layout_height="@dimen/spacing_xxlarge"
                 android:layout_marginTop="@dimen/spacing_large"
-                android:text="Last Name"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/grey_60" />
+                android:textColorHint="@color/grey_80"
+                app:boxStrokeColor="@color/grey_20"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
 
-            <EditText
-                android:id="@+id/lastName"
-                style="@style/EditText.Flat.Grey"
+                    android:id="@+id/clientId"
+                    android:hint="Client Id"
+                    android:padding="0dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/spacing_xmlarge"
-                android:background="@drawable/edit_text_round_bg_white"
-                android:minHeight="@dimen/spacing_xmlarge"
-                android:paddingLeft="@dimen/spacing_middle"
-                android:paddingRight="@dimen/spacing_middle"
-               />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_medium"
+                android:layout_height="@dimen/spacing_xxlarge"
                 android:layout_marginTop="@dimen/spacing_large"
-                android:text="Sex"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/grey_60" />
-            <RadioGroup
+                android:textColorHint="@color/grey_80"
+                app:boxStrokeColor="@color/grey_20"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:id="@+id/firstName"
+                    android:hint="First Name"
+                    android:padding="0dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_xxlarge"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:textColorHint="@color/grey_80"
+                app:boxStrokeColor="@color/grey_20"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:id="@+id/middleName"
+                    android:hint="Middle Name"
+                    android:padding="0dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_xxlarge"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:textColorHint="@color/grey_80"
+                app:boxStrokeColor="@color/grey_20"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/lastName"
+                    android:hint="Last Name"
+                    android:padding="0dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_xxlarge"
+                android:textColorHint="@color/grey_80"
+                app:boxStrokeColor="@color/grey_20"
+                >
+
+             <RadioGroup
                 android:id="@+id/sex_radio_group"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -111,7 +109,6 @@
                     android:layout_width="wrap_content"
                     style="@style/EditText.Flat.Grey"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edit_text_round_bg_white"
                     android:text="Male" />
 
                 <com.google.android.material.radiobutton.MaterialRadioButton
@@ -119,53 +116,47 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/EditText.Flat.Grey"
-                    android:background="@drawable/edit_text_round_bg_white"
+
                     android:text="Female" />
 
 
             </RadioGroup>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_medium"
-                android:layout_marginTop="@dimen/spacing_large"
-                android:text="Date of Birth"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/grey_60" />
 
-            <EditText
-                android:id="@+id/dateOfBirth"
-                style="@style/EditText.Flat.Grey"
+         </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/spacing_xmlarge"
-                android:background="@drawable/edit_text_round_bg_white"
-                android:drawableEnd="@drawable/ic_expand_arrow"
-                android:drawableRight="@drawable/ic_expand_arrow"
-                android:editable="false"
-                android:minHeight="@dimen/spacing_xmlarge"
-                android:paddingLeft="@dimen/spacing_middle"
-                android:focusable="false"
-                android:paddingRight="@dimen/spacing_middle"
-                android:text="Select Date" />
+                android:layout_height="@dimen/spacing_xxlarge"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:textColorHint="@color/grey_80"
+                app:boxStrokeColor="@color/grey_20"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/dateOfBirth"
+                    android:text="Date of Birth"
+                    android:drawableEnd="@drawable/ic_expand_arrow"
+                    android:drawableRight="@drawable/ic_expand_arrow"
+                    android:padding="0dp" />
+            </com.google.android.material.textfield.TextInputLayout>
               <TextView
                 android:id="@+id/fingerprint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_medium"
                 android:layout_marginTop="@dimen/spacing_large"
                 android:text="Finger Print Consent"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="@color/grey_60" />
             <RadioGroup
                 android:id="@+id/fingerprint_radio_group"
-                android:layout_width="284dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                  <com.google.android.material.radiobutton.MaterialRadioButton
                     android:id="@+id/radio_button_yes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edit_text_round_bg_white"
                     style="@style/EditText.Flat.Grey"
                     android:text="Yes" />
 
@@ -173,14 +164,28 @@
                     android:id="@+id/radio_button_no"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edit_text_round_bg_white"
                     style="@style/EditText.Flat.Grey"
                     android:text="No" />
 
             </RadioGroup>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="@dimen/spacing_mlarge" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_save"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginLeft="-4dp"
+                android:layout_marginRight="-4dp"
+                android:background="@drawable/btn_rounded_primary"
+                android:text="@string/SAVE"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
         </LinearLayout>
-
+        </androidx.cardview.widget.CardView>
     </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>

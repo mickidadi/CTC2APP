@@ -14,13 +14,13 @@ import java.util.List;
 
 public class ClientBiometricViewModel extends AndroidViewModel {
     private ClientBiometricRepository repository;
-    private LiveData<List<ClientEntity>> allClients;
-    private LiveData<List<String>> allClientName;
+    private LiveData<List<ClientBiometricEntity>> allClientBiometrics;
 
     public ClientBiometricViewModel(@NonNull Application application) {
         super(application);
 
         repository = new ClientBiometricRepository(application);
+        allClientBiometrics = repository.getAllClientBiometric();
 
     }
 
@@ -43,5 +43,9 @@ public class ClientBiometricViewModel extends AndroidViewModel {
     public LiveData<List<ClientBiometricEntity>> getClientBiometricSearch(String clientId){
 
         return repository.getAllClientBiometricSearch(clientId);
+    }
+    public LiveData<List<ClientBiometricEntity>> getAllClientBiometric(){
+
+        return repository.getAllClientBiometric();
     }
 }

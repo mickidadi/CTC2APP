@@ -4,11 +4,16 @@ import com.ucc.ctc.models.AdminHierarchyExtendedRootRemote;
 import com.ucc.ctc.models.AdminHierarchyRemote;
 import com.ucc.ctc.models.AdminHierarchyRootRemote;
 import com.ucc.ctc.models.ClientRootRemote;
+import com.ucc.ctc.models.UploadClientRemoteResponse;
 import com.ucc.ctc.models.UserProfile;
 import com.ucc.ctc.models.Users;
 
+import org.json.JSONObject;
+
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface ApiService {
@@ -24,4 +29,6 @@ public interface ApiService {
     Call<AdminHierarchyExtendedRootRemote> getRemoteAdminHierachyExtendedDownload();
     @GET("/afyaplus/index.php?r=site/getremoteadminhierarchydivision")
     Call<AdminHierarchyDivisionRootRemote> getRemoteAdminHierachyDivisionDownload();
+    @POST("/afyaplus/index.php?r=site/upload-client")
+    Call<UploadClientRemoteResponse> sendData(@Body JSONObject payload);
 }

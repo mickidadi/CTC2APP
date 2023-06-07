@@ -2,8 +2,9 @@
 
     <style name="AppTheme" parent="BaseTheme" />
 
-    <style name="AppTheme.Material" parent="BaseTheme.Material" />
-
+    <style name="AppTheme.Material" parent="BaseTheme.Material">
+        <item name="colorPrimary">@color/colorTwitter</item>
+    </style>
     <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>

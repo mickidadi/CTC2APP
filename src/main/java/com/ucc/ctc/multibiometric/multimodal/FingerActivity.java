@@ -17,7 +17,13 @@ import android.widget.Button;
 import android.widget.FrameLayout.LayoutParams;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+
+import com.neurotec.biometrics.NBiometricOperation;
 import com.neurotec.biometrics.NBiometricStatus;
+import com.neurotec.biometrics.NBiometricTask;
 import com.neurotec.biometrics.NFPosition;
 import com.neurotec.biometrics.NFinger;
 import com.neurotec.biometrics.NSubject;
@@ -29,13 +35,22 @@ import com.neurotec.devices.NDeviceType;
 import com.neurotec.devices.NFScanner;
 import com.neurotec.images.NImage;
 import com.ucc.ctc.R;
+import com.ucc.ctc.dao.ClientBiometricDao;
 import com.ucc.ctc.licensing.LicensingManager;
+import com.ucc.ctc.models.entity.ClientBiometricEntity;
+import com.ucc.ctc.models.entity.ClientEntity;
 import com.ucc.ctc.multibiometric.preferences.FingerPreferences;
 import com.ucc.ctc.util.IOUtils;
 import com.ucc.ctc.util.NImageUtils;
 import com.ucc.ctc.util.ResourceUtils;
+import com.ucc.ctc.views.ClientActivity;
+import com.ucc.ctc.views.LoginFacilityActivity;
+import com.ucc.ctc.viewsModel.ClientBiometricViewModel;
+import com.ucc.ctc.viewsModel.FacilityViewModel;
 
+import java.nio.ByteBuffer;
 import java.util.Arrays;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -58,6 +73,8 @@ public final class FingerActivity extends BiometricActivity {
 	private Bitmap mDefaultBitmap;
 	private TextView mStatus;
 	private Map<String, NFPosition> mFingerPositions;
+	private ClientBiometricViewModel clientBiometricViewModel;
+	private static NBiometricClient biometricClient = null;
 
 	// ===========================================================
 	// Private methods
@@ -309,4 +326,5 @@ public final class FingerActivity extends BiometricActivity {
 //			LicensingManager.LICENSE_FINGER_QUALITY_ASSESSMENT,
 //			LicensingManager.LICENSE_FINGER_SEGMENTS_DETECTION);
 	}
+
 }

@@ -29,7 +29,8 @@ public class UserRemoteRepository {
                 .addInterceptor(loggingInterceptor)
                 .build();
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://technolemon.com/")
+                //.baseUrl("https://technolemon.com/")
+                .baseUrl("http://10.45.1.102/")
                 .addConverterFactory( GsonConverterFactory.create())
                 .client(client)
                 .build();
@@ -44,6 +45,7 @@ public class UserRemoteRepository {
     }
   public LiveData<UserProfile> getUserRemote(String username,String password) {
         MutableLiveData<UserProfile> data = new MutableLiveData<>();
+
         apiServices.getRemoteUser(username,password).enqueue(new Callback<UserProfile>() {
             @Override
             public void onResponse(Call<UserProfile> call, Response<UserProfile> response) {

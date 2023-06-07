@@ -1,6 +1,9 @@
 package com.ucc.ctc.views;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,32 +15,26 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.ucc.ctc.R;
 import com.ucc.ctc.viewsModel.FacilitySearchViewModel;
 
+import java.io.IOException;
+import java.net.InetAddress;
+
 public class FacilitySettingActivity extends AppCompatActivity {
 private  EditText hfrId;
 private EditText webUrl;
-private TextView message;
 private String url ;
 private String keyword;
 private FacilitySearchViewModel viewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_facility_setting );
-        final Button cancel=findViewById( R.id.cancel_web_extension_url );
+
         final Button save=findViewById( R.id.action_web_url_save );
               hfrId=findViewById( R.id.ctc_hfr_code);
               webUrl=findViewById( R.id.ctc_web_url );
-              message=findViewById( R.id.ctc_facility_setting_message );
-              //performSearch();
+               //performSearch();
 
-        cancel.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(FacilitySettingActivity.this,LoginFacilityActivity.class)  ;
-                 startActivity(intent);
-                finish();
-            }
-        } );
         save.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,6 +44,7 @@ private FacilitySearchViewModel viewModel;
                 boolean isValid=true;
                 keyword = hfrId.getEditableText().toString();
                 url = webUrl.getEditableText().toString();
+                  setSessionData(keyword,url);
                 if (keyword.isEmpty()) {
                     hfrId.setError("This field is required");
                     isValid=false;
@@ -57,9 +55,28 @@ private FacilitySearchViewModel viewModel;
                     isValid=false;
                     focusView=webUrl;
                 }
+                if (isValidIPAddress(url)) {
+                   /* if (isIPAddressAvailable(url)) {
+                        //System.out.println("IP address is valid and available.");
+                        webUrl.setError("IP address is valid and available.");
+                        isValid=true;
+                      //  focusView=webUrl;
+                    } else {
+                      //  System.out.println("IP address is valid but not available.");
+                        webUrl.setError("IP address is valid but not available.");
+                        isValid=false;
+                        focusView=webUrl;
+                    }*/
+                } else {
+                  //  System.out.println("Invalid IP address format.");
+                    webUrl.setError("Invalid IP address format.");
+                    isValid=false;
+                    focusView=webUrl;
+                }
                 if (isValid) {
                     Intent intentSave = new Intent( FacilitySettingActivity.this, FacilityConfirmationPageActivity.class );
                     intentSave.putExtra( "hfrId", keyword );
+                    intentSave.putExtra( "url", url );
                     startActivity( intentSave );
                     finish();
                     //end
@@ -83,5 +100,32 @@ private FacilitySearchViewModel viewModel;
             isValid=false;
         }
       return  isValid;
+    }
+    public void setSessionData(String url,String hfrId){
+
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("facilityLoginSession", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("webUrl", url);
+        editor.putString( "hfrId",hfrId);
+        editor.apply();
+
+
+    }
+    public boolean isIPAddressAvailable(String ipAddress) {
+        boolean isAvailable = false;
+        try {
+            InetAddress inetAddress = InetAddress.getByName(ipAddress);
+            isAvailable = inetAddress.isReachable(3000); // Timeout in milliseconds
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return isAvailable;
+    }
+    public boolean isValidIPAddress(String ipAddress) {
+        String pattern = "^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
+                "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
+                "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
+                "([01]?\\d\\d?|2[0-4]\\d|25[0-5])$";
+        return ipAddress.matches(pattern);
     }
 }

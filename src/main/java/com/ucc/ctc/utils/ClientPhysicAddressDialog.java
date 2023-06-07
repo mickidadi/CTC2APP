@@ -60,11 +60,11 @@ public class ClientPhysicAddressDialog extends AppCompatDialogFragment implement
     private String selectedConsent;
     private String selectedRadioButtonTextFinger;
     private  AdminHierarchyViewModel councilViewModel;
-    private AdminHierarchyDivisionViewModel divisionViewModel;
+    private  AdminHierarchyDivisionViewModel divisionViewModel;
     private  AdminHierarchyViewModel wardViewModel;
     private  AdminHierarchyViewModel villageViewModel;
-    private   String councilName,divisionName,wardName,villageName;
-    private SearchableSpinner council_spinner,division_spinner,ward_spinner,village_spinner;
+    private  String councilName,divisionName,wardName,villageName;
+    private  SearchableSpinner council_spinner,division_spinner,ward_spinner,village_spinner;
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -315,10 +315,6 @@ public class ClientPhysicAddressDialog extends AppCompatDialogFragment implement
         editor.putString("fingerClientName", ClientName);
         editor.putString( "fingerClientId",ClientId);
         editor.apply();
-    }
-
-    public interface UpdateClientAddressListener {
-
     }
 
     @Override

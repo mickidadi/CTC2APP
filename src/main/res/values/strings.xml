@@ -386,9 +386,9 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="action_save">Save</string>
-    <string name="app_ctc_web_url">CTC2 Web Extension URL</string>
+    <string name="app_ctc_web_url">CTC2 Web URL Ex 192.172.12.15</string>
     <string name="action_cancel">Cancel</string>
-    <string name="app_ctc_hfr_code">HFR Code</string>
+    <string name="app_ctc_hfr_code">HFR Code Example 120550-9</string>
     <string name="facility_confirmation_page">Facility Confirmation</string>
     <string name="app_ctc_code">CTC Code</string>
     <string name="app_ctc_facility">Facility Name</string>
@@ -498,6 +498,14 @@
     <string name="_4_7">4.7</string>
     <string name="facility_setting">Facility Setting</string>
     <string name="facility_confirmation">Facility Confirmation</string>
+    <string name="msg_template_created">Template Created</string>
+    <string name="format_extraction_failed">Extraction Failed</string>
+    <string name="msg_no_scanners_found">No Scanners Found</string>
+    <string name="format_capturing_from_device_put_finger">Capturing from %1$s device. Please put your finger on the device.</string>
+    <string name="msg_initialising">Initialising</string>
+    <string name="spinner_prompt">Select</string>
+    <string name="does_the_client_have_known_drug_allergeis">Does the Client have known drug allergeis</string>
+    <string name="hfr_code">HFR Code</string>
     <string-array name="planets">
         <item>Mercury</item>
         <item>Venus</item>

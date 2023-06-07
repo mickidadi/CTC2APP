@@ -28,7 +28,6 @@
              />
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/spacing_middle"
             android:visibility="visible"
@@ -37,7 +36,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/grey_5"
                 android:orientation="vertical"
                 android:padding="@dimen/spacing_mlarge">
 
@@ -47,7 +45,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="@dimen/spacing_xlarge"
                     android:layout_marginTop="@dimen/spacing_middle"
-                    android:text="LOGIN IN"
+                    android:text="LOGIN"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                     android:textColor="@color/blue"
                     android:textStyle="bold" />
@@ -60,69 +58,74 @@
                     android:src="@mipmap/nacp_logo"
                     />
 
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:background="@drawable/spinner_border"
+                >
                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                     android:id="@+id/facilityLoginSpinner"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="320dp"
-                    android:layout_height="45dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_xxlarge"
                    android:drawableEnd="@drawable/ic_expand_arrow"
                    android:drawableRight="@drawable/ic_expand_arrow"
-                   android:background="@drawable/edit_text_round_bg_white"
-                    android:layout_marginTop="@dimen/nav_header_vertical_spacing"
-                    app:hintText="Select Facility"
-                    app:errorEnabled="true"
-                    app:errorIconDrawable="@drawable/ic_error"
-                    app:errorIconTint="@color/red_500"
-                    app:helperText="*required"
-                   />
-                <EditText
-                    android:id="@+id/username"
-                    android:layout_width="320dp"
-                    android:layout_height="45dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/edit_text_round_bg_white"
-                    android:hint="Username"
-                    android:imeOptions="actionDone"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"
-                    android:selectAllOnFocus="true"
-                    android:textSize="16dp"
-                    />
+                     app:hintText="Select Facility"
+                     android:textColorHint="#FF0000"
+                     app:boxStrokeColor="@color/grey_20"
 
-                <EditText
-                    android:id="@+id/password"
-                    android:layout_width="320dp"
-                    android:layout_height="45dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/edit_text_round_bg_white"
-                    android:hint="Password"
-                    android:imeActionLabel="@string/action_sign_in_short"
-                    android:imeOptions="actionDone"
-                    android:inputType="textPassword"
-                    android:selectAllOnFocus="true"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"
-                    android:textSize="16dp"
-                    app:errorEnabled="true"
-                    app:errorIconDrawable="@drawable/ic_error"
-                    app:errorIconTint="@color/red_500"
-                    app:helperText="*required"
-                    />
+                  />
+            </LinearLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_xxlarge"
+                    android:layout_marginTop="@dimen/spacing_large"
+                    android:textColorHint="@color/grey_80"
+                    app:boxStrokeColor="@color/grey_20"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
 
-                <View
+                        android:id="@+id/username"
+                        android:hint="Username"
+                        android:padding="0dp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_xxlarge"
+                    android:layout_marginTop="@dimen/spacing_large"
+                    android:textColorHint="@color/grey_80"
+                    app:boxStrokeColor="@color/grey_20"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/password"
+                        android:hint="Password"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        android:selectAllOnFocus="true"
+                        android:padding="0dp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+              <View
                     android:layout_width="0dp"
                     android:layout_height="@dimen/spacing_mlarge" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:layout_width="match_parent"
                     android:id="@+id/login"
+                    android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:layout_marginLeft="-4dp"
                     android:layout_marginRight="-4dp"
-
                     android:background="@drawable/btn_rounded_primary"
-                    android:text="LOGIN IN"
+                    android:text="Login"
                     android:textAllCaps="false"
+                    android:textSize="18sp"
                     android:textColor="@android:color/white"
                     android:textStyle="bold" />
 

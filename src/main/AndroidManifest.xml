@@ -9,6 +9,7 @@
         android:name="com.ucc.ctc.multibiometric.BiometricApplication"
         package="com.ucc.ctc"
         android:extractNativeLibs="true"
+        android:usesCleartextTraffic="true"
         android:hardwareAccelerated="true"
         android:icon="@drawable/ic_neurotechnology_logo"
         android:label="@string/app_name"
@@ -16,14 +17,7 @@
         android:theme="@style/AppTheme"
         tools:replace="android:name">
         <activity
-            android:name=".TreatmentSupporterActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".ClientPhysicaAddress"
+            android:name=".views.EnrollFingerFromScanner"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -196,7 +190,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".views.ClientProfileActivity"
-            android:label="@string/app_name"
+            android:label="Client Profile"
             android:parentActivityName=".views.ClientActivity"
             android:theme="@style/AppTheme" />
         <activity
@@ -224,7 +218,11 @@
             android:name=".utils.AddEditClientActivity"
             android:label="Client Registration"
             android:theme="@style/AppTheme" />
-
+        <activity
+            android:name=".views.ClientCreateActivity"
+            android:label="Client Registration"
+            android:parentActivityName=".views.ClientActivity"
+            android:theme="@style/AppTheme" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />

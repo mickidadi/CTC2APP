@@ -28,6 +28,40 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:orientation="vertical">
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="@color/white"
+				android:layout_marginTop="@dimen/spacing_small"
+				android:orientation="horizontal">
+
+			<LinearLayout
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:orientation="vertical">
+
+				<TextView
+					android:id="@+id/finger_counter"
+					style="@style/EditText.Flat.Grey"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:background="@drawable/edit_text_round_bg_white"
+					android:gravity="center"
+					android:paddingLeft="@dimen/spacing_large"
+					android:paddingRight="@dimen/spacing_middle"
+					android:text="0"
+					android:textColor="@color/green_500"
+					android:textSize="19dip" />
+
+			</LinearLayout>
+
+
+			<LinearLayout
+				android:layout_width="150dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:orientation="vertical">
 				<TextView
 					android:id="@+id/finger_label_clientName"
 					style="@style/EditText.Flat.Grey"
@@ -40,42 +74,26 @@
 					android:paddingBottom="@dimen/spacing_large"
 					android:layout_marginBottom="@dimen/spacing_medium"
 					/>
+			</LinearLayout>
+			</LinearLayout>
 				<LinearLayout
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
+					android:background="@color/white"
 					android:layout_marginTop="@dimen/spacing_small"
 					android:orientation="horizontal">
-
-					<LinearLayout
-						android:layout_width="0dp"
-						android:layout_height="wrap_content"
-						android:layout_weight="1"
-						android:orientation="vertical">
-
-						<TextView
-							android:id="@+id/finger_counter"
-							style="@style/EditText.Flat.Grey"
-							android:layout_width="match_parent"
-							android:layout_height="wrap_content"
-							android:background="@drawable/edit_text_round_bg_white"
-							android:gravity="center"
-							android:paddingLeft="@dimen/spacing_large"
-							android:paddingRight="@dimen/spacing_middle"
-							android:text="0"
-							android:textColor="@color/green_500"
-							android:textSize="19dip" />
-
-					</LinearLayout>
-
-					<View
-						android:layout_width="@dimen/spacing_large"
-						android:layout_height="0dp" />
-
-					<LinearLayout
+                     <LinearLayout
 						android:layout_width="150dp"
 						android:layout_height="wrap_content"
 						android:layout_weight="1"
 						android:orientation="vertical">
+						<ImageView
+							android:id="@+id/hand_image"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_below="@id/left_finger_checkbox"
+							android:layout_margin="@dimen/spacing_small"
+							android:src="@mipmap/left_hand_empty" />
 						<TextView
 							android:id="@+id/cfm_CTCCode"
 							style="@style/EditText.Flat.Grey"
@@ -91,13 +109,7 @@
 					android:layout_width="match_parent"
 					android:layout_height="2dp"
 					android:background="@color/white" />
-				 <ImageView
-					android:id="@+id/hand_image"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_below="@id/left_finger_checkbox"
-					android:layout_margin="@dimen/spacing_small"
-					android:src="@mipmap/left_hand_empty" />
+
 				<TextView
 					android:id="@+id/finger_label_value"
 					style="@style/EditText.Flat.Grey"

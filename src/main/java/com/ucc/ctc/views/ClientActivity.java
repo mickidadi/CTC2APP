@@ -174,10 +174,10 @@ public class ClientActivity extends AppCompatActivity implements CreateClientDia
 
     }
     private void openCreateClientDialog() {
-        CreateClientDialog createClientDialog = new CreateClientDialog();
-        createClientDialog.show(getSupportFragmentManager(),"Create Client");
-        /*Intent intent = new Intent(ClientActivity.this, AddEditClientActivity.class);
-         startActivity(intent);*/
+       // CreateClientDialog createClientDialog = new CreateClientDialog();
+       // createClientDialog.show(getSupportFragmentManager(),"Create Client");
+        Intent intent = new Intent(ClientActivity.this, ClientCreateActivity.class);
+         startActivity(intent);
     }
 
     private void intToolbar() {

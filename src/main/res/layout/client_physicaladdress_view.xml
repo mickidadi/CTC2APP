@@ -26,7 +26,14 @@
             android:layout_margin="@dimen/spacing_medium"
             android:padding="@dimen/spacing_medium"
             android:orientation="vertical">
-
+            <TextView
+                android:id="@+id/dataStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/grey_60" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -39,11 +46,9 @@
                 style="@style/EditText.Flat.Grey"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Siha DC"
-                android:paddingTop="@dimen/spacing_small"
                 android:paddingLeft="@dimen/spacing_middle"
                 android:paddingRight="@dimen/spacing_middle"
-                android:paddingBottom="@dimen/spacing_large"
+                android:paddingBottom="@dimen/spacing_small"
                 android:layout_marginBottom="@dimen/spacing_medium"
                 />
             <View
@@ -64,11 +69,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/spacing_medium"
-               android:text="Siha Mashariki"
-                android:paddingTop="@dimen/spacing_small"
                 android:paddingLeft="@dimen/spacing_middle"
                 android:paddingRight="@dimen/spacing_middle"
-                android:paddingBottom="@dimen/spacing_large"
+                android:paddingBottom="@dimen/spacing_small"
                 />
             <View
                 android:layout_width="match_parent"
@@ -88,11 +91,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/spacing_medium"
-                android:text="Siha"
-                android:paddingTop="@dimen/spacing_small"
                 android:paddingLeft="@dimen/spacing_middle"
                 android:paddingRight="@dimen/spacing_middle"
-                android:paddingBottom="@dimen/spacing_large"
+                android:paddingBottom="@dimen/spacing_small"
                 />
             <View
                 android:layout_width="match_parent"
@@ -112,11 +113,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/spacing_medium"
-                android:text="Lawate"
-                android:paddingTop="@dimen/spacing_small"
                 android:paddingLeft="@dimen/spacing_middle"
                 android:paddingRight="@dimen/spacing_middle"
-                android:paddingBottom="@dimen/spacing_large"
+                android:paddingBottom="@dimen/spacing_small"
                 />
             <View
                 android:layout_width="match_parent"
@@ -136,12 +135,11 @@
                 style="@style/EditText.Flat.Grey"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="@dimen/spacing_small"
                 android:paddingLeft="@dimen/spacing_middle"
                 android:paddingRight="@dimen/spacing_middle"
-                android:paddingBottom="@dimen/spacing_large"
-                android:layout_marginBottom="@dimen/spacing_medium"
-                android:text="Asha Mwashiri" />
+                android:paddingBottom="@dimen/spacing_small"
+                android:layout_marginBottom="@dimen/spacing_small"
+                />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
@@ -160,12 +158,11 @@
                 style="@style/EditText.Flat.Grey"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="@dimen/spacing_small"
                 android:paddingLeft="@dimen/spacing_middle"
                 android:paddingRight="@dimen/spacing_middle"
-                android:paddingBottom="@dimen/spacing_large"
+                android:paddingBottom="@dimen/spacing_small"
                 android:layout_marginBottom="@dimen/spacing_medium"
-                android:text="Hamira Juma" />
+                />
 
             <View
                 android:layout_width="match_parent"
@@ -176,7 +173,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_medium"
                 android:textStyle="bold"
-                android:text="Name of Household head"
+                android:text="Name of Household Head"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="@color/grey_60" />
 
@@ -185,12 +182,11 @@
                 style="@style/EditText.Flat.Grey"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="@dimen/spacing_small"
                 android:paddingLeft="@dimen/spacing_middle"
                 android:paddingRight="@dimen/spacing_middle"
-                android:paddingBottom="@dimen/spacing_large"
-                android:layout_marginBottom="@dimen/spacing_medium"
-                android:text="Kiwandacha Hamisi Ally" />
+                android:paddingBottom="@dimen/spacing_small"
+                android:layout_marginBottom="@dimen/spacing_small"
+                />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
@@ -200,7 +196,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_medium"
                 android:textStyle="bold"
-                android:text="Contact of Household head"
+                android:text="Contact of Household Head"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="@color/grey_60" />
 
@@ -209,12 +205,11 @@
                 style="@style/EditText.Flat.Grey"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="@dimen/spacing_small"
                 android:paddingLeft="@dimen/spacing_middle"
                 android:paddingRight="@dimen/spacing_middle"
-                android:paddingBottom="@dimen/spacing_large"
+                android:paddingBottom="@dimen/spacing_small"
                 android:layout_marginBottom="@dimen/spacing_medium"
-                android:text="29312301231" />
+                 />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
@@ -232,12 +227,11 @@
                 style="@style/EditText.Flat.Grey"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="@dimen/spacing_small"
                 android:paddingLeft="@dimen/spacing_middle"
                 android:paddingRight="@dimen/spacing_middle"
-                android:paddingBottom="@dimen/spacing_large"
+                android:paddingBottom="@dimen/spacing_small"
                 android:layout_marginBottom="@dimen/spacing_medium"
-                android:text="9312912302113" />
+              />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
@@ -256,16 +250,11 @@
                 style="@style/EditText.Flat.Grey"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="@dimen/spacing_small"
                 android:paddingLeft="@dimen/spacing_middle"
                 android:paddingRight="@dimen/spacing_middle"
-                android:paddingBottom="@dimen/spacing_large"
+                android:paddingBottom="@dimen/spacing_small"
                 android:layout_marginBottom="@dimen/spacing_medium"
-                android:text="Yes" />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/grey_5" />
+                 />
         </LinearLayout>
         </androidx.cardview.widget.CardView>
     </androidx.core.widget.NestedScrollView>

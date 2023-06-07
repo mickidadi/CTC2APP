@@ -33,4 +33,8 @@ public interface ClientDao {
     //Get all the list of client from the table  by descending order
     @Query( "SELECT * FROM tblClients WHERE MiddleName LIKE :name OR LastName LIKE :name OR FirstName LIKE :name OR ClientId LIKE :clientId order by id ASC")
     LiveData<List<ClientEntity>> getAllClientSearch(String clientId,String name);
+    @Query( "SELECT * FROM tblClients order by id DESC")
+    List<ClientEntity> getAllClientBio();
+    @Query( "SELECT count(*) FROM tblClients ")
+    LiveData<Integer> getClientCount();
 }

@@ -28,5 +28,11 @@ public interface ClientBiometricDao {
     @Query( "SELECT * FROM tblClientBiometry WHERE ClientId=:clientId order by id DESC")
     LiveData<List<ClientBiometricEntity>> getAllClientBiometric(String clientId);
     //Get all the list of client from the table  by descending order
+    @Query( "SELECT * FROM tblClientBiometry ")
+    LiveData<List<ClientBiometricEntity>> getAllClientBiometricData();
+    //Get all the list of client from the table  by descending order
+    @Query( "SELECT * FROM tblClientBiometry ")
+    List<ClientBiometricEntity> getAllClientBiometric();
+    //Get all the list of client from the table  by descending order
 
 }

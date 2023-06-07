@@ -31,7 +31,8 @@
                  .addInterceptor(loggingInterceptor)
                  .build();
          Retrofit retrofit = new Retrofit.Builder()
-                 .baseUrl("https://technolemon.com/")
+                 //.baseUrl("https://technolemon.com/")
+                 .baseUrl("http://10.45.1.102/")
                  .addConverterFactory( GsonConverterFactory.create())
                  .client(client)
                  .build();
@@ -46,6 +47,7 @@
      }
      public LiveData<AdminHierarchyDivisionRootRemote> getAdminHierarchyRemote() {
          MutableLiveData<AdminHierarchyDivisionRootRemote> data = new MutableLiveData<>();
+
          apiServices.getRemoteAdminHierachyDivisionDownload().enqueue(new Callback<AdminHierarchyDivisionRootRemote>() {
              @Override
              public void onResponse(Call<AdminHierarchyDivisionRootRemote> call, Response<AdminHierarchyDivisionRootRemote> response) {

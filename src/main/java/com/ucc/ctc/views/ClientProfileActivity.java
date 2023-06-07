@@ -25,41 +25,34 @@ import androidx.lifecycle.ViewModelProviders;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.ucc.ctc.R;
-import com.ucc.ctc.adapters.ClientRecyclerViewAdapter;
-import com.ucc.ctc.models.FacilitySearchResponse;
-import com.ucc.ctc.models.UserProfile;
-import com.ucc.ctc.models.entity.ClientEntity;
 import com.ucc.ctc.models.entity.ClientPhysicalAddressEntity;
 import com.ucc.ctc.models.entity.ClientTreatmentSupporterEntity;
-import com.ucc.ctc.models.entity.UserEntity;
 import com.ucc.ctc.utils.ClientPhysicAddressDialog;
 import com.ucc.ctc.utils.ClientTreatmentSupporterDialog;
-import com.ucc.ctc.utils.CreateClientDialog;
 import com.ucc.ctc.utils.Tools;
-import com.ucc.ctc.utils.UpdateClientDialog;
+import com.ucc.ctc.utils.UpdateClientPhysicalAddressDialog;
+import com.ucc.ctc.utils.UpdateClientTreatmentSupporterDialog;
 import com.ucc.ctc.utils.ViewAnimation;
 import com.ucc.ctc.viewsModel.ClientPhysicalAddressViewModel;
 import com.ucc.ctc.viewsModel.ClientTreatmentSupporterViewModel;
-import com.ucc.ctc.viewsModel.ClientViewModel;
-import com.ucc.ctc.viewsModel.FacilitySearchViewModel;
-import com.ucc.ctc.viewsModel.UserRemoteViewModel;
+
 
 public class ClientProfileActivity extends AppCompatActivity implements  ClientPhysicAddressDialog.CreateClientAddressListener,
-        ClientPhysicAddressDialog.UpdateClientAddressListener, ClientTreatmentSupporterDialog.CreateClientTreatmentSupporterListener {
+        UpdateClientPhysicalAddressDialog.UpdateClientAddressListener, ClientTreatmentSupporterDialog.CreateClientTreatmentSupporterListener {
     ImageView capture_finger_print,addClientAddress;
     private  MaterialButton action_button_treatment_supporter;
     private NestedScrollView nested_scroll_view;
     private ImageButton bt_toggle_client_address, bt_toggle_treatment_supporter,bt_toggle_community_group;
     private View lyt_expand_client_address, lyt_expand_treatment_supporter,lyt_expand_community_group,parent;
-    private ClientPhysicalAddressViewModel clientPhysicalAddressViewModel;
-    private ClientTreatmentSupporterViewModel clientTreatmentSupporterViewModel;
+    private ClientPhysicalAddressViewModel clientPhysicalAddressViewModel,updateclientPhysicalAddressViewModel;
+    private ClientTreatmentSupporterViewModel clientTreatmentSupporterViewModel,updateclientTreatmentSupporterViewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView( R.layout.activity_client_profile);
         TextView profile_client_fullName =findViewById( R.id.profile_client_fullName);
         TextView gender =findViewById( R.id.profile_client_gender );
-        //TextView profile_clientId =findViewById( R.id.profile_client_id );
+        TextView datastatus =findViewById( R.id.dataStatus );
         //intToolbar();
        // initToolbar();
         initComponent();
@@ -88,6 +81,8 @@ public class ClientProfileActivity extends AppCompatActivity implements  ClientP
                     SMSConsentView.setText( supporterEntity.getSMSConsent() );
                     clientCommunityGroupView.setText( supporterEntity.getClientCommunityGroup() );
                     dateJoinedView.setText( supporterEntity.getDateJoined() );
+                    //update data Status
+                     datastatus.setText( "1" );
                 }
             }
         } );
@@ -122,10 +117,14 @@ public class ClientProfileActivity extends AppCompatActivity implements  ClientP
                     contacthouseholdHeadView.setText( supporterAddressEntity.getHouseholdcontact() );
                     contactClientPhoneView.setText( supporterAddressEntity.getClientPhone() );
                     SMSConsentView.setText( supporterAddressEntity.getSMSConsent() );
+                    //update data Status
+                    datastatus.setText( "1");
                 }
             }
         } );
         //END TREATMENT
+
+        //end
         capture_finger_print=findViewById( R.id.capture_finger_print );
           //CAPTURE FINGER PRINT
         capture_finger_print.setOnClickListener( new View.OnClickListener() {
@@ -143,7 +142,16 @@ public class ClientProfileActivity extends AppCompatActivity implements  ClientP
             @Override
             public void onClick(View v) {
                 setSessionData(fullName,clientId);
-                openClientAddressDialog();
+                //find data status
+
+                String getdatastus=datastatus.getText().toString();
+                //End
+              Log.v( "message Create","Add Address"+getdatastus );
+                if(getdatastus.isEmpty()||getdatastus.length()==0) {
+                    openClientAddressDialog();
+                }else{
+                    openUpdateClientAddressDialog(clientId);
+                }
             }
         } );
         action_button_treatment_supporter=findViewById( R.id.action_button_treatment_supporter );
@@ -151,7 +159,14 @@ public class ClientProfileActivity extends AppCompatActivity implements  ClientP
             @Override
             public void onClick(View v) {
                 setSessionData(fullName,clientId);
-                openClientTreatmentSupportDialog();
+                //find data status
+                String getdatastus=datastatus.getText().toString();
+                //End
+                     if(getdatastus=="-1") {
+                      openClientTreatmentSupportDialog();
+                    }else{
+                        openUpdateClientTreatmentSupporter(clientId);
+                     }
             }
         } );
     }
@@ -189,8 +204,6 @@ public class ClientProfileActivity extends AppCompatActivity implements  ClientP
           editor.putString("fingerClientName", ClientName);
           editor.putString( "fingerClientId",ClientId);
           editor.apply();
-
-
     }
     private void initComponent() {
         // Client Address item_section
@@ -278,10 +291,28 @@ public class ClientProfileActivity extends AppCompatActivity implements  ClientP
   public void snackBar(String message) {
         Snackbar.make(parent, message, Snackbar.LENGTH_SHORT).show();
     }
-    private void openUpdateClientAddressDialog(ClientPhysicalAddressEntity clientPhysicalAddress) {
-       // UpdateClientDialog updateClientDialog = new UpdateClientDialog();
-       // updateClientDialog.setClient(clientPhysicalAddress);
-       /// updateClientDialog.show(getSupportFragmentManager(),"Update Client");
+    private void openUpdateClientAddressDialog(String clientId) {
+
+        //START CLIENT TREATMENT ADDRESS
+        updateclientPhysicalAddressViewModel = ViewModelProviders.of(this).get(ClientPhysicalAddressViewModel.class);
+        //End
+        //update address data
+         updateclientPhysicalAddressViewModel.getClientPhysicalAddressSearch(clientId).observe( this, new Observer<ClientPhysicalAddressEntity>() {
+            @Override
+            public void onChanged(ClientPhysicalAddressEntity supporterAddressEntity) {
+                if (supporterAddressEntity != null) {
+                    UpdateClientPhysicalAddressDialog updateClientDialog = new UpdateClientPhysicalAddressDialog();
+                    // Display client Physical Address
+                    Log.v( "Update data","upate record"+supporterAddressEntity.getVillageChairperson() );
+                    updateClientDialog.setClient(supporterAddressEntity);
+                    updateClientDialog.show(getSupportFragmentManager(),"Update Physical Address");
+                }else{
+                    Log.v( "Update data","upate record failed");
+                }
+            }
+        } );
+        //END TREATMENT
+
     }
     private void openClientTreatmentSupportDialog() {
         ClientTreatmentSupporterDialog createClientSupporterDialog = new ClientTreatmentSupporterDialog();
@@ -292,10 +323,60 @@ public class ClientProfileActivity extends AppCompatActivity implements  ClientP
         clientTreatmentSupporterViewModel.insert(clientTreatmentSupporterEntity);
         snackBar("Client Treatment Supporter Saved");
     }
-  /* @Override
+   @Override
     public void updateNewClientAddress(ClientPhysicalAddressEntity clientPhysicalAddress) {
         clientPhysicalAddressViewModel.update(clientPhysicalAddress);
         snackBar("Client Updated");
-    }*/
+    }
+    public void updateClientTreatmentSupporter(ClientTreatmentSupporterEntity clientTreatmentSupporterEntity) {
+        clientTreatmentSupporterViewModel.update(clientTreatmentSupporterEntity);
+        snackBar("Client Treatment Supporter Updated");
+    }
+    private void openUpdateClientTreatmentSupporter(String clientId){
+        //profile_clientId.setText(clientId );
+        Log.v( "Update data","upate record failed"+clientId);
+        updateclientTreatmentSupporterViewModel = ViewModelProviders.of(this).get(ClientTreatmentSupporterViewModel.class);
+        //End
+        // clientTreatmentSupporterViewModel.init( keyword );
+        updateclientTreatmentSupporterViewModel.getClientTreatmentSupporterSearch(clientId).observe( this, new Observer<ClientTreatmentSupporterEntity>() {
+            @Override
+            public void onChanged(ClientTreatmentSupporterEntity supporterEntitys) {
+                if (supporterEntitys != null) {
+                    // Display client Treatment Supporter
+                    if (supporterEntitys != null) {
+                        UpdateClientTreatmentSupporterDialog updateClientDialog = new UpdateClientTreatmentSupporterDialog();
+                        // Display client Physical Address
+                        Log.v( "Update data","upate record"+supporterEntitys.getTreatmentSupporterName() );
+                        //updateClientDialog.setClient(supporterEntitys);
+                        updateClientDialog.show(getSupportFragmentManager(),"Update Physical Address");
+                    }else{
+                        Log.v( "Update data","upate record failed"+clientId);
+                    }
+                }
+            }
+        } );
+    }
+    private void openUpdateClientTreatmentSupporterx(String clientId) {
 
+        //START CLIENT TREATMENT ADDRESS
+        updateclientTreatmentSupporterViewModel = ViewModelProviders.of(this).get(ClientTreatmentSupporterViewModel.class);
+        //End
+        //update address data
+        updateclientTreatmentSupporterViewModel.getClientTreatmentSupporterSearch(clientId).observe( this, new Observer<ClientTreatmentSupporterEntity>() {
+            @Override
+            public void onChanged(ClientTreatmentSupporterEntity supporterEntitys) {
+                if (supporterEntitys != null) {
+                    UpdateClientTreatmentSupporterDialog updateClientDialog = new UpdateClientTreatmentSupporterDialog();
+                    // Display client Physical Address
+                    Log.v( "Update data","upate record"+supporterEntitys.getTreatmentSupporterName() );
+                    //updateClientDialog.setClient(supporterEntitys);
+                    updateClientDialog.show(getSupportFragmentManager(),"Update Physical Address");
+                }else{
+                    Log.v( "Update data","upate record failed"+clientId);
+                }
+            }
+        } );
+        //END TREATMENT
+
+    }
 }

@@ -33,21 +33,21 @@ public class Util {
   }
   public static List<String> getRightFinger(){
     List<String> items = new ArrayList<>();
-          items.add("RIGHT_THUMB");
-          items.add("RIGHT_INDEX_FINGER");
-          items.add("RIGHT_MIDDLE_FINGER");
-          items.add("RIGHT_RING_FINGER");
-          items.add("RIGHT_PINKY_FINGER");
+          items.add( String.valueOf( Finger.RIGHT_THUMB ) );
+          items.add(String.valueOf( Finger.RIGHT_INDEX_FINGER));
+          items.add(String.valueOf( Finger.RIGHT_MIDDLE_FINGER));
+          items.add(String.valueOf( Finger.RIGHT_RING_FINGER));
+          items.add(String.valueOf( Finger.RIGHT_LITTLE_FINGER));
       return items;
   }
   public static List<String> getLeftFinger(){
 
         List<String> items = new ArrayList<>();
-        items.add("LEFT_PINKY_FINGER");
-        items.add("LEFT_RING_FINGER");
-        items.add("LEFT_MIDDLE_FINGER");
-        items.add("LEFT_INDEX_FINGER");
-        items.add("LEFT_THUMB");
+        items.add( String.valueOf( Finger.LEFT_LITTLE_FINGER ) );
+        items.add( String.valueOf( Finger.LEFT_RING_FINGER ) );
+        items.add( String.valueOf( Finger.LEFT_MIDDLE_FINGER ) );
+        items.add( String.valueOf( Finger.LEFT_INDEX_FINGER ) );
+        items.add( String.valueOf( Finger.LEFT_THUMB ) );
         return items;
     }
 

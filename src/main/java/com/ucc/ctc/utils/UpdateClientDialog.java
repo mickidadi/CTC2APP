@@ -70,16 +70,14 @@ public class UpdateClientDialog extends AppCompatDialogFragment {
         }
         clientId=view.findViewById(R.id.clientId);
         dateOfBirth=view.findViewById( R.id.dateOfBirth );
-
-
         mSaveBtn = view.findViewById(R.id.btn_save);
-
         firstName.setText(client.getFirstName());
         middleName.setText(client.getFirstName());
         lastName.setText(client.getLastName());
        // sex.setText( client.getSex());
         clientId.setText( client.getClientId() );
         dateOfBirth.setText( client.getDateOfBirth());
+
         mSaveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

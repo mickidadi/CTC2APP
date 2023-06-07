@@ -137,9 +137,9 @@ public class MainActivity extends AppCompatActivity
         }
         String[] neededPermissions = getNotGrantedPermissions();
         if(neededPermissions.length == 0) {
-            new MainActivity.InitializationTask().execute();
+            // new MainActivity.InitializationTask().execute();
         } else {
-            requestPermissions(neededPermissions);
+            // requestPermissions(neededPermissions);
         }
         //LOGOUT btn_close_filter
        ImageButton btn_close_filter = findViewById( R.id.btn_close_filter);
@@ -184,7 +184,7 @@ public class MainActivity extends AppCompatActivity
         navs_covid.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, DownloadClientDataActivity.class));
+                startActivity(new Intent(MainActivity.this, EnrollFingerFromScanner.class));
             }
         } );
 
@@ -437,4 +437,5 @@ public class MainActivity extends AppCompatActivity
     private void requestPermissions(String[] permissions) {
         ActivityCompat.requestPermissions(this, permissions,REQUEST_ID_MULTIPLE_PERMISSIONS);
     }
+
 }

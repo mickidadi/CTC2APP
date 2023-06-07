@@ -129,7 +129,8 @@
                         android:layout_height="@dimen/spacing_mlarge"
                         android:layout_margin="@dimen/spacing_middle"
                         app:srcCompat="@drawable/ic_dns"
-                        app:tint="@color/deep_orange_300" />
+                        app:tint="@color/colorPrimaryLight"
+                       />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -156,7 +157,7 @@
                         android:layout_height="@dimen/spacing_mlarge"
                         android:layout_margin="@dimen/spacing_middle"
                         app:srcCompat="@drawable/ic_peoples"
-                        app:tint="@color/deep_orange_300" />
+                        app:tint="@color/colorPrimaryLight" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -193,7 +194,7 @@
                         android:layout_height="@dimen/spacing_mlarge"
                         android:layout_margin="@dimen/spacing_middle"
                         app:srcCompat="@drawable/ic_airport_shuttle"
-                        app:tint="@color/deep_orange_300" />
+                        app:tint="@color/colorPrimaryLight" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -220,7 +221,7 @@
                         android:layout_height="@dimen/spacing_mlarge"
                         android:layout_margin="@dimen/spacing_middle"
                         app:srcCompat="@drawable/ic_apps"
-                        app:tint="@color/deep_orange_300" />
+                        app:tint="@color/colorPrimaryLight" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -246,7 +247,7 @@
                         android:layout_height="@dimen/spacing_mlarge"
                         android:layout_margin="@dimen/spacing_middle"
                         app:srcCompat="@drawable/ic_credit_card"
-                        app:tint="@color/deep_orange_300" />
+                        app:tint="@color/colorPrimaryLight" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -273,7 +274,7 @@
                         android:layout_height="@dimen/spacing_mlarge"
                         android:layout_margin="@dimen/spacing_middle"
                         app:srcCompat="@drawable/ic_data_usage"
-                        app:tint="@color/deep_orange_300" />
+                        app:tint="@color/colorPrimaryLight" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -306,7 +307,7 @@
                         android:layout_height="@dimen/spacing_mlarge"
                         android:layout_margin="@dimen/spacing_middle"
                         app:srcCompat="@drawable/ic_pharmacy_24"
-                        app:tint="@color/deep_orange_300" />
+                        app:tint="@color/colorPrimaryLight" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -333,7 +334,7 @@
                         android:layout_height="@dimen/spacing_mlarge"
                         android:layout_margin="@dimen/spacing_middle"
                         app:srcCompat="@drawable/ic_sync"
-                        app:tint="@color/deep_orange_300" />
+                        app:tint="@color/colorPrimaryLight" />
                      <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -367,7 +368,7 @@
                         android:layout_height="@dimen/spacing_mlarge"
                         android:layout_margin="@dimen/spacing_middle"
                         app:srcCompat="@drawable/ic_enhanced_encryption"
-                        app:tint="@color/deep_orange_300" />
+                        app:tint="@color/colorPrimaryLight" />
 
                     <TextView
                         android:layout_width="wrap_content"
