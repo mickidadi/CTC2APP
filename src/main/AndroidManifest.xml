@@ -9,13 +9,14 @@
         android:name="com.ucc.ctc.multibiometric.BiometricApplication"
         package="com.ucc.ctc"
         android:extractNativeLibs="true"
-        android:usesCleartextTraffic="true"
         android:hardwareAccelerated="true"
         android:icon="@drawable/ic_neurotechnology_logo"
         android:label="@string/app_name"
         android:requestLegacyExternalStorage="true"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:replace="android:name">
+
         <activity
             android:name=".views.EnrollFingerFromScanner"
             android:exported="false">
@@ -45,89 +46,10 @@
             android:name="com.neurotec.licensing.gui.ActivationActivity"
             android:theme="@android:style/Theme.Holo.Light" />
         <activity
-            android:name="com.ucc.ctc.multibiometric.multimodal.MultiModalActivity"
-            android:hardwareAccelerated="false"
-            android:screenOrientation="portrait"
-            android:taskAffinity="com.ucc.ctc.multibiometric.multimodal" />
-        <activity
-            android:name="com.ucc.ctc.multibiometric.multimodal.FaceActivity"
-            android:hardwareAccelerated="true"
-            android:label="@string/face_app_name"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.ucc.ctc.multibiometric.multimodal.FingerActivity"
-            android:hardwareAccelerated="true"
-            android:label="@string/finger_app_name"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Holo.Light" />
-        <activity
             android:name=".views.FingerClientActivity"
             android:hardwareAccelerated="true"
             android:label="@string/finger_app_name"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name="com.ucc.ctc.multibiometric.multimodal.IrisActivity"
-            android:hardwareAccelerated="true"
-            android:label="@string/iris_app_name"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.ucc.ctc.multibiometric.multimodal.VoiceActivity"
-            android:hardwareAccelerated="true"
-            android:label="@string/voice_app_name"
-            android:screenOrientation="portrait" /> <!-- Preferences MenuDrawerAdmin -->
-        <activity
-            android:name="com.ucc.ctc.multibiometric.preferences.MultimodalPreferences"
-            android:parentActivityName="com.ucc.ctc.multibiometric.multimodal.MultiModalActivity"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.ucc.ctc.multibiometric.multimodal.MultiModalActivity" />
-        </activity>
-        <activity
-            android:name="com.ucc.ctc.multibiometric.preferences.ConnectionPreferences"
-            android:label="@string/face_app_name"
-            android:parentActivityName="com.ucc.ctc.multibiometric.multimodal.MultiModalActivity"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.ucc.ctc.multibiometric.multimodal.MultiModalActivity" />
-        </activity>
-        <activity
-            android:name="com.ucc.ctc.multibiometric.preferences.FacePreferences"
-            android:label="@string/face_app_name"
-            android:parentActivityName="com.ucc.ctc.multibiometric.multimodal.FaceActivity"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.ucc.ctc.multibiometric.multimodal.FaceActivity" />
-        </activity>
-        <activity
-            android:name="com.ucc.ctc.multibiometric.preferences.FingerPreferences"
-            android:label="@string/finger_app_name"
-            android:parentActivityName="com.ucc.ctc.multibiometric.multimodal.FingerActivity"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.ucc.ctc.multibiometric.multimodal.FingerActivity" />
-        </activity>
-        <activity
-            android:name="com.ucc.ctc.multibiometric.preferences.IrisPreferences"
-            android:label="@string/iris_app_name"
-            android:parentActivityName="com.ucc.ctc.multibiometric.multimodal.IrisActivity"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.ucc.ctc.multibiometric.multimodal.IrisActivity" />
-        </activity>
-        <activity
-            android:name="com.ucc.ctc.multibiometric.preferences.VoicePreferences"
-            android:label="@string/voice_app_name"
-            android:parentActivityName="com.ucc.ctc.multibiometric.multimodal.VoiceActivity"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.ucc.ctc.multibiometric.multimodal.VoiceActivity" />
-        </activity>
+            android:theme="@android:style/Theme.Holo.Light" />
         <activity
             android:name=".views.ClientFingerPrintActivity"
             android:exported="false"
@@ -154,7 +76,7 @@
         <activity
             android:name=".views.DownloadClientDataActivity"
             android:exported="false"
-            android:parentActivityName=".views.MainActivity">
+            android:parentActivityName=".views.DeviceSettingActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -181,8 +103,9 @@
         -->
         <activity
             android:name=".views.FacilityPageActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="Facility Update"
+            android:parentActivityName=".views.DeviceSettingActivity"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".views.ClientActivity"
             android:label="@string/app_name"
@@ -223,7 +146,35 @@
             android:label="Client Registration"
             android:parentActivityName=".views.ClientActivity"
             android:theme="@style/AppTheme" />
-        <meta-data
+        <activity
+            android:name=".views.ClientPhysicalAddressActivity"
+            android:label="Client Physical Address"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".views.ClientPhysicalAddressActivityUpdate"
+            android:label="Client Physical Address"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".views.ClientTreatmentSupporterActivity"
+            android:label="Client Treatment Supporter"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".views.FingerActivity"
+            android:label="Client Finger"
+            android:parentActivityName=".views.ClientActivity"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".views.LicenseActivationActivity"
+            android:label="Biometry Setting"
+            android:parentActivityName=".views.DeviceSettingActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".views.DeviceSettingActivity"
+            android:label="Device Setting"
+            android:parentActivityName=".views.MainActivity"
+            android:theme="@style/AppTheme" />
+
+         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
         <meta-data

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:scrollingCache="true">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/spacing_middle"
+        android:visibility="visible"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="5dp">
+             <LinearLayout
+                android:layout_gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_large">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_xxlarge"
+                    android:layout_marginTop="@dimen/spacing_large"
+                    android:textColorHint="@color/grey_80"
+                    app:boxStrokeColor="@color/grey_20">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/biometric_serial_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Serial No"
+                        android:padding="0dp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_middle"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="match_parent"
+                        android:id="@+id/action_serial_request"
+                        android:layout_marginTop="@dimen/spacing_xlarge"
+                        android:layout_height="55dp"
+                        android:background="@drawable/btn_rounded_primary"
+                        android:text="Load Serial No"
+                        android:textSize="18sp"
+                        android:textAllCaps="false"
+                        android:drawableLeft="@drawable/ic_menu_button_load"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold" />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="match_parent"
+                        android:id="@+id/action_serial_activate"
+                        android:layout_marginTop="@dimen/spacing_xlarge"
+                        android:layout_height="55dp"
+                        android:layout_marginLeft="-4dp"
+                        android:layout_marginRight="-4dp"
+                        android:background="@drawable/btn_rounded_primary"
+                        android:text="Activate"
+                        android:visibility="gone"
+                        android:textSize="18sp"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+    </androidx.cardview.widget.CardView>
+        </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

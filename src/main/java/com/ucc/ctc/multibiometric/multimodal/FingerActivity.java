@@ -323,8 +323,8 @@ public final class FingerActivity extends BiometricActivity {
 		return Arrays.asList(LicensingManager.LICENSE_FINGER_WSQ,
 				LicensingManager.LICENSE_FINGER_STANDARDS_FINGER_TEMPLATES,
 				LicensingManager.LICENSE_FINGER_STANDARDS_FINGERS);
-//			LicensingManager.LICENSE_FINGER_QUALITY_ASSESSMENT,
-//			LicensingManager.LICENSE_FINGER_SEGMENTS_DETECTION);
+			    //LicensingManager.LICENSE_FINGER_QUALITY_ASSESSMENT,
+			   // LicensingManager.LICENSE_FINGER_SEGMENTS_DETECTION);
 	}
 
 }

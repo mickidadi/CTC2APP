@@ -44,6 +44,7 @@ public class ClientProfileActivity extends AppCompatActivity implements  ClientP
     private NestedScrollView nested_scroll_view;
     private ImageButton bt_toggle_client_address, bt_toggle_treatment_supporter,bt_toggle_community_group;
     private View lyt_expand_client_address, lyt_expand_treatment_supporter,lyt_expand_community_group,parent;
+
     private ClientPhysicalAddressViewModel clientPhysicalAddressViewModel,updateclientPhysicalAddressViewModel;
     private ClientTreatmentSupporterViewModel clientTreatmentSupporterViewModel,updateclientTreatmentSupporterViewModel;
     @Override
@@ -162,11 +163,12 @@ public class ClientProfileActivity extends AppCompatActivity implements  ClientP
                 //find data status
                 String getdatastus=datastatus.getText().toString();
                 //End
-                     if(getdatastus=="-1") {
-                      openClientTreatmentSupportDialog();
+                openClientTreatmentSupportDialog();
+                     /*if(getdatastus=="-1") {
+
                     }else{
                         openUpdateClientTreatmentSupporter(clientId);
-                     }
+                     }*/
             }
         } );
     }
@@ -280,8 +282,10 @@ public class ClientProfileActivity extends AppCompatActivity implements  ClientP
         }
     }
     private void openClientAddressDialog() {
-        ClientPhysicAddressDialog createClientDialog = new ClientPhysicAddressDialog();
-        createClientDialog.show(getSupportFragmentManager(),"Create Client Address");
+      //  ClientPhysicAddressDialog createClientDialog = new ClientPhysicAddressDialog();
+        ///createClientDialog.show(getSupportFragmentManager(),"Create Client Address");
+        Intent intent = new Intent(this, ClientPhysicalAddressActivity.class);
+        startActivity(intent);
      }
     @Override
     public void  saveNewClientAddress(ClientPhysicalAddressEntity clientPhysicalAddressEntity){
@@ -303,11 +307,11 @@ public class ClientProfileActivity extends AppCompatActivity implements  ClientP
                 if (supporterAddressEntity != null) {
                     UpdateClientPhysicalAddressDialog updateClientDialog = new UpdateClientPhysicalAddressDialog();
                     // Display client Physical Address
-                    Log.v( "Update data","upate record"+supporterAddressEntity.getVillageChairperson() );
+                    Log.v( "Update data","Update record   "+supporterAddressEntity.getVillageChairperson() );
                     updateClientDialog.setClient(supporterAddressEntity);
                     updateClientDialog.show(getSupportFragmentManager(),"Update Physical Address");
                 }else{
-                    Log.v( "Update data","upate record failed");
+                    Log.v( "Update data","Update record failed");
                 }
             }
         } );
@@ -315,8 +319,10 @@ public class ClientProfileActivity extends AppCompatActivity implements  ClientP
 
     }
     private void openClientTreatmentSupportDialog() {
-        ClientTreatmentSupporterDialog createClientSupporterDialog = new ClientTreatmentSupporterDialog();
-        createClientSupporterDialog.show(getSupportFragmentManager(),"Create Treatment Supporter");
+       // ClientTreatmentSupporterDialog createClientSupporterDialog = new ClientTreatmentSupporterDialog();
+       // createClientSupporterDialog.show(getSupportFragmentManager(),"Create Treatment Supporter");
+        Intent intent = new Intent(this, ClientTreatmentSupporterActivity.class);
+        startActivity(intent);
     }
     @Override
     public void saveNewClientTreatmentSupporter(ClientTreatmentSupporterEntity clientTreatmentSupporterEntity) {

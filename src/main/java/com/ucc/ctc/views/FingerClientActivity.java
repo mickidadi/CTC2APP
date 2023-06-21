@@ -230,9 +230,9 @@
 
 		mFingers = new ArrayList<NFRecord>();
 		mFingerCounter = (TextView) findViewById(R.id.finger_counter);
-		LinearLayout left_container = findViewById(R.id.left_fingers_checkbox);
+		//LinearLayout left_container = findViewById(R.id.left_fingers_checkbox);
 		List<String> selectedItems_left;
-		LinearLayout right_container = findViewById(R.id.right_fingers_checkbox);
+		//LinearLayout right_container = findViewById(R.id.right_fingers_checkbox);
 		// ===========================================================
 		// Protected methods
 		// ===========================================================
@@ -247,9 +247,9 @@
 		finger_label_value=findViewById( R.id.finger_label_value );
 
 		finger_label_clientName=findViewById( R.id.finger_label_clientName );
-		finger_label_clientName.setText(clientName);
+		//finger_label_clientName.setText(clientName);
 		cfm_CTCCode=findViewById( R.id.cfm_CTCCode );
-		cfm_CTCCode.setText(ClientId);
+		//cfm_CTCCode.setText(ClientId);
 		mFingerPositions = new HashMap<String, NFPosition>();
 
 		mFingerPositions.put(MultiModalActivity.toLowerCase(NFPosition.UNKNOWN.name()), NFPosition.UNKNOWN);
@@ -269,7 +269,7 @@
 		// CUSTOM FINGER SETTING
 		// ===========================================================
 		selectedItems_left = new ArrayList<>();
-		for (String item_left : Util.getLeftFinger()) {
+		/*for (String item_left : Util.getLeftFinger()) {
 		MaterialCheckBox checkBox_left = new MaterialCheckBox(this);
 		checkBox_left.setText(item_left);
 		if(item_left=="LEFT_INDEX_FINGER") {
@@ -279,7 +279,7 @@
 		getFinger(item_left);
 		}
 		checkBox_left.setTextSize( 11 );
-		left_container.addView(checkBox_left);
+		//left_container.addView(checkBox_left);
 
 		checkBox_left.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 		@Override
@@ -332,10 +332,10 @@
 		}
 		}
 		});
-		}
+		}*/
 		//End finger
 		//Start Right Finger
-		for (String item_right : Util.getRightFinger()) {
+		/*for (String item_right : Util.getRightFinger()) {
 		MaterialCheckBox checkBox_right = new MaterialCheckBox(this);
 		checkBox_right.setText(item_right);
 		checkBox_right.setTextSize( 11 );
@@ -345,7 +345,7 @@
 		finger_label_value.setText(item_right);
 		getFinger(item_right);
 		}
-		right_container.addView(checkBox_right);
+		//right_container.addView(checkBox_right);
 
 		checkBox_right.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 		@Override
@@ -389,7 +389,7 @@
 		Log.d("MyTag", "My array: " +selectedItems_left);
 		}
 		});
-		}
+		}*/
 		mFingerView = new NFingerView(this);
 		layout.addView(mFingerView);
 

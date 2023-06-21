@@ -56,38 +56,34 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:scrollbars="vertical">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/spacing_middle"
+            android:visibility="visible"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="5dp">
       <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="@dimen/spacing_medium">
-         <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/grey_5"
-        android:clipToPadding="false"
-        android:padding="@dimen/spacing_mlarge"
-        android:scrollbars="none"
-        android:scrollingCache="true"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-        <LinearLayout
+         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_medium"
-                android:text="Council"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/grey_60" />
 
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:background="@drawable/spinner_border"
+                >
             <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                 android:id="@+id/councilId"
                 style="@style/EditText.Flat.Grey"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/spacing_xmlarge"
-                android:background="@drawable/edit_text_round_bg_white"
                 android:drawableEnd="@drawable/ic_expand_arrow"
                 android:drawableRight="@drawable/ic_expand_arrow"
                 android:editable="false"
@@ -97,42 +93,41 @@
                 android:paddingRight="@dimen/spacing_middle"
                 app:hintText="Select Council" />
                 />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_medium"
-                android:text="Division"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/grey_60" />
 
+            </LinearLayout>
+             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/spacing_middle"
+                 android:orientation="horizontal"
+                 android:background="@drawable/spinner_border"
+                 >
             <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                 android:id="@+id/divisionId"
                 style="@style/EditText.Flat.Grey"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/spacing_xmlarge"
-                android:background="@drawable/edit_text_round_bg_white"
                 android:drawableEnd="@drawable/ic_expand_arrow"
                 android:drawableRight="@drawable/ic_expand_arrow"
-                android:editable="false"
                 android:minHeight="@dimen/spacing_xmlarge"
                 android:paddingLeft="@dimen/spacing_middle"
                 android:focusable="false"
                 android:paddingRight="@dimen/spacing_middle"
                 app:hintText="Select Division" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_medium"
-                android:text="Ward"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/grey_60" />
+             </LinearLayout>
+             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:layout_marginTop="@dimen/spacing_middle"
+                 android:orientation="horizontal"
+                 android:background="@drawable/spinner_border"
+                 >
 
             <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                 android:id="@+id/wardId"
                 style="@style/EditText.Flat.Grey"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/spacing_xmlarge"
-                android:background="@drawable/edit_text_round_bg_white"
                 android:drawableEnd="@drawable/ic_expand_arrow"
                 android:drawableRight="@drawable/ic_expand_arrow"
                 android:editable="false"
@@ -141,22 +136,20 @@
                 android:focusable="false"
                 android:paddingRight="@dimen/spacing_middle"
                 app:hintText="Select Ward" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_medium"
-                android:layout_marginTop="@dimen/spacing_large"
-                android:text="Street/Village"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/grey_60" />
-
-            <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+             </LinearLayout>
+             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:orientation="horizontal"
+                 android:layout_marginTop="@dimen/spacing_middle"
+                 android:background="@drawable/spinner_border"
+                 >
+       <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                 android:id="@+id/villageId"
                 style="@style/EditText.Flat.Grey"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/spacing_xmlarge"
-                android:background="@drawable/edit_text_round_bg_white"
+
                 android:drawableEnd="@drawable/ic_expand_arrow"
                 android:drawableRight="@drawable/ic_expand_arrow"
                 android:editable="false"
@@ -165,98 +158,87 @@
                 android:focusable="false"
                 android:paddingRight="@dimen/spacing_middle"
                 app:hintText="Select Street/Village" />
+             </LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_xxlarge"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:textColorHint="@color/grey_80"
+                app:boxStrokeColor="@color/grey_20"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/villageChairpersonId"
+                    android:hint="Street/Village Chairperson"
+                    android:padding="0dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_medium"
-                android:layout_marginTop="@dimen/spacing_large"
-                android:text="Street/Village Chairperson"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/grey_60" />
-            <EditText
-                android:id="@+id/villageChairpersonId"
-                style="@style/EditText.Flat.Grey"
+            </com.google.android.material.textfield.TextInputLayout>
+           <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/spacing_xmlarge"
-                android:background="@drawable/edit_text_round_bg_white"
-                android:minHeight="@dimen/spacing_xmlarge"
-                android:paddingLeft="@dimen/spacing_middle"
-                android:paddingRight="@dimen/spacing_middle"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_medium"
+                android:layout_height="@dimen/spacing_xxlarge"
                 android:layout_marginTop="@dimen/spacing_large"
-                android:text="Name of Ten Cell Leader"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/grey_60" />
-            <EditText
-                android:id="@+id/cellLeaderId"
-                style="@style/EditText.Flat.Grey"
+                android:textColorHint="@color/grey_80"
+                app:boxStrokeColor="@color/grey_20"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/cellLeaderId"
+                    android:hint="Name of Ten Cell Leader"
+                    android:padding="0dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+          <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/spacing_xmlarge"
-                android:background="@drawable/edit_text_round_bg_white"
-                android:minHeight="@dimen/spacing_xmlarge"
-                android:paddingLeft="@dimen/spacing_middle"
-                android:paddingRight="@dimen/spacing_middle"
-                />
-            <TextView
-                android:id="@+id/household"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_medium"
+                android:layout_height="@dimen/spacing_xxlarge"
                 android:layout_marginTop="@dimen/spacing_large"
-                android:text="Name of Household head"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/grey_60" />
-            <EditText
-                android:id="@+id/householdHeadId"
-                style="@style/EditText.Flat.Grey"
+                android:textColorHint="@color/grey_80"
+                app:boxStrokeColor="@color/grey_20"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/householdHeadId"
+                    android:hint="Name of Household head"
+                    android:padding="0dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+          <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/spacing_xmlarge"
-                android:background="@drawable/edit_text_round_bg_white"
-                android:minHeight="@dimen/spacing_xmlarge"
-                android:paddingLeft="@dimen/spacing_middle"
-                android:paddingRight="@dimen/spacing_middle"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_medium"
+                android:layout_height="@dimen/spacing_xxlarge"
                 android:layout_marginTop="@dimen/spacing_large"
-                android:text="Contact of Household head"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/grey_60" />
-            <EditText
-                android:id="@+id/householdcontactId"
-                style="@style/EditText.Flat.Grey"
+                android:textColorHint="@color/grey_80"
+                app:boxStrokeColor="@color/grey_20"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/householdcontactId"
+                    android:hint="Contact of Household head"
+                    android:padding="0dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/spacing_xmlarge"
-                android:background="@drawable/edit_text_round_bg_white"
-                android:minHeight="@dimen/spacing_xmlarge"
-                android:paddingLeft="@dimen/spacing_middle"
-                android:paddingRight="@dimen/spacing_middle"
-                />
-            <TextView
-                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_medium"
+                android:layout_height="@dimen/spacing_xxlarge"
                 android:layout_marginTop="@dimen/spacing_large"
-                android:text="Client Phone Number"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/grey_60" />
-            <EditText
-                android:id="@+id/clientcontactphoneId"
-                style="@style/EditText.Flat.Grey"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/spacing_xmlarge"
-                android:background="@drawable/edit_text_round_bg_white"
-                android:minHeight="@dimen/spacing_xmlarge"
-                android:paddingLeft="@dimen/spacing_middle"
-                android:paddingRight="@dimen/spacing_middle"
-                />
+                android:textColorHint="@color/grey_80"
+                app:boxStrokeColor="@color/grey_20"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/clientcontactphoneId"
+                    android:hint="Client Phone Number"
+                    android:padding="0dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -290,9 +272,8 @@
             </RadioGroup>
         </LinearLayout>
 
-    </androidx.core.widget.NestedScrollView>
-
 </LinearLayout>
+        </androidx.cardview.widget.CardView>
  </androidx.core.widget.NestedScrollView>
 
 <View
@@ -308,23 +289,7 @@ android:paddingBottom="@dimen/spacing_middle"
 android:paddingLeft="@dimen/spacing_mlarge"
 android:paddingRight="@dimen/spacing_mlarge"
 android:paddingTop="@dimen/spacing_middle">
-<androidx.appcompat.widget.AppCompatButton
-    android:id="@+id/cpd_cancel"
-    style="@style/Button.Primary.Borderless"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:background="@drawable/btn_rounded_amber"
-    android:clickable="true"
-    android:text="@string/action_cancel"
-    android:textAllCaps="false"
-    android:textColor="@color/red_900"
-    android:textSize="16dp"
-   />
 
-<View
-    android:layout_width="@dimen/spacing_large"
-    android:layout_height="0dp" />
 <Button
     android:id="@+id/cpd_save"
     style="@style/Button.Primary.Borderless"

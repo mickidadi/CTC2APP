@@ -60,6 +60,9 @@ android {
 	lintOptions {
 		abortOnError false
 	}
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 gradle.projectsEvaluated {

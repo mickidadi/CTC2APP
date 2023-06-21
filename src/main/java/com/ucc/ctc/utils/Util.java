@@ -50,5 +50,11 @@ public class Util {
         items.add( String.valueOf( Finger.LEFT_THUMB ) );
         return items;
     }
-
+    public static boolean isValidIPAddress(String ipAddress) {
+        String pattern = "^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
+                "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
+                "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
+                "([01]?\\d\\d?|2[0-4]\\d|25[0-5])$";
+        return ipAddress.matches(pattern);
+    }
 }

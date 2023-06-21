@@ -34,6 +34,7 @@ public class FacilityEntity {
         this.ward = ward;
         this.ctcWebUrl=ctcWebUrl;
     }
+
     public int getId() {
         return id;
     }

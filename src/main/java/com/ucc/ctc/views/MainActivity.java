@@ -33,11 +33,8 @@ import com.neurotec.lang.NCore;
 import com.ucc.ctc.R;
 import com.ucc.ctc.licensing.LicensingManager;
 import com.ucc.ctc.multibiometric.Model;
-import com.ucc.ctc.multibiometric.multimodal.FaceActivity;
 import com.ucc.ctc.multibiometric.multimodal.FingerActivity;
-import com.ucc.ctc.multibiometric.multimodal.IrisActivity;
 import com.ucc.ctc.multibiometric.multimodal.MultiModalActivity;
-import com.ucc.ctc.multibiometric.multimodal.VoiceActivity;
 import com.ucc.ctc.util.ExceptionUtils;
 import com.ucc.ctc.util.ToastManager;
 import com.ucc.ctc.view.ErrorDialogFragment;
@@ -96,8 +93,8 @@ public class MainActivity extends AppCompatActivity
 
         //  =====   Activity launcher
 
-        super.onCreate(savedInstanceState);
-        setContentView( R.layout.activity_main);
+         super.onCreate(savedInstanceState);
+         setContentView( R.layout.activity_main);
          NCore.setContext(this);
         //  =====   Toolbar setup
 
@@ -139,7 +136,7 @@ public class MainActivity extends AppCompatActivity
         if(neededPermissions.length == 0) {
             // new MainActivity.InitializationTask().execute();
         } else {
-            // requestPermissions(neededPermissions);
+          //   requestPermissions(neededPermissions);
         }
         //LOGOUT btn_close_filter
        ImageButton btn_close_filter = findViewById( R.id.btn_close_filter);
@@ -188,18 +185,16 @@ public class MainActivity extends AppCompatActivity
             }
         } );
 
-        LinearLayout navs_data_sync =(LinearLayout) findViewById( R.id.navs_data_sync);
-        navs_data_sync.setOnClickListener( new View.OnClickListener() {
+
+        LinearLayout device_setting =(LinearLayout) findViewById( R.id.device_setting);
+        device_setting.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, DownloadClientDataActivity.class));
+                startActivity(new Intent(MainActivity.this, DeviceSettingActivity.class));
             }
         } );
-
     }
-
     //  =====   Back drawer
-
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -244,6 +239,7 @@ public class MainActivity extends AppCompatActivity
        else if (id == R.id.nav_data_sync) {
            startActivity(new Intent(MainActivity.this, DownloadClientDataActivity.class));
        }
+
        //nav_covid
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
 
@@ -361,17 +357,18 @@ public class MainActivity extends AppCompatActivity
     // ===========================================================
 
     private static List<String> getMandatoryComponentsInternal() {
-        List<String> components = new ArrayList<String>();
-        for (String component : FaceActivity.mandatoryComponents()) {
-            if (!components.contains(component)) {
-                components.add(component);
-            }
-        }
+       List<String> components = new ArrayList<String>();
         for (String component : com.ucc.ctc.multibiometric.multimodal.FingerActivity.mandatoryComponents()) {
             if (!components.contains(component)) {
                 components.add(component);
             }
         }
+        /*for (String component : FaceActivity.mandatoryComponents()) {
+            if (!components.contains(component)) {
+                components.add(component);
+            }
+        }
+
         for (String component : IrisActivity.mandatoryComponents()) {
             if (!components.contains(component)) {
                 components.add(component);
@@ -381,22 +378,24 @@ public class MainActivity extends AppCompatActivity
             if (!components.contains(component)) {
                 components.add(component);
             }
-        }
+        }*/
         return components;
+
     }
 
     private static List<String> getAdditionalComponentsInternal() {
         List<String> components = new ArrayList<String>();
-        for (String component : FaceActivity.additionalComponents()) {
-            if (!components.contains(component)) {
-                components.add(component);
-            }
-        }
         for (String component : FingerActivity.additionalComponents()) {
             if (!components.contains(component)) {
                 components.add(component);
             }
         }
+       /* for (String component : FaceActivity.additionalComponents()) {
+            if (!components.contains(component)) {
+                components.add(component);
+            }
+        }
+
         for (String component : IrisActivity.additionalComponents()) {
             if (!components.contains(component)) {
                 components.add(component);
@@ -406,7 +405,7 @@ public class MainActivity extends AppCompatActivity
             if (!components.contains(component)) {
                 components.add(component);
             }
-        }
+        }*/
         return components;
     }
     private static List<String> getRequiredPermissions() {

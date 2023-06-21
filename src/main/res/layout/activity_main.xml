@@ -75,7 +75,7 @@
                         android:layout_margin="@dimen/spacing_xsmall"
                         android:src="@mipmap/nacp_logo"
                         app:civ_border="true"
-                        app:civ_border_color="@color/grey_20"
+                        app:civ_border_color="@color/colorTwitter"
                         app:civ_border_width="3dp"
                         app:civ_shadow="true"
                         app:civ_shadow_radius="0dp" />
@@ -316,10 +316,20 @@
 
                 </LinearLayout>
 
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_middle"
+                    android:paddingLeft="@dimen/spacing_middle"
+                    android:paddingRight="@dimen/spacing_middle"
+                    android:text="Other"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/navs_data_sync"
+                    android:id="@+id/device_setting"
                     android:background="?attr/selectableItemBackground"
                     android:clickable="true"
                     android:gravity="center_vertical"
@@ -333,23 +343,14 @@
                         android:layout_width="@dimen/spacing_mlarge"
                         android:layout_height="@dimen/spacing_mlarge"
                         android:layout_margin="@dimen/spacing_middle"
-                        app:srcCompat="@drawable/ic_sync"
+                        app:srcCompat="@drawable/ic_settings"
                         app:tint="@color/colorPrimaryLight" />
-                     <TextView
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/menu_data_sync" />
+                        android:text="Device Setting" />
 
                 </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/spacing_middle"
-                    android:paddingLeft="@dimen/spacing_middle"
-                    android:paddingRight="@dimen/spacing_middle"
-                    android:text="Other"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -373,7 +374,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Security" />
+                        android:text="Credential" />
 
                 </LinearLayout>
                    <View
@@ -402,6 +403,57 @@
                         app:srcCompat="@drawable/ic_power_settings"
                         app:tint="@color/deep_orange_300" />
 
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="@dimen/spacing_small"
+                    android:background="@color/grey_5" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="?android:attr/actionBarSize"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/spacing_large"
+                        android:layout_marginRight="@dimen/spacing_large"
+                        android:text="NACP © 2022 - 2023"
+                        android:textColor="@color/grey_40"
+                        app:fontFamily="sans-serif-medium" />
+                  <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/spacing_large"
+                        android:paddingTop="@dimen/spacing_small"
+                        android:layout_marginRight="@dimen/spacing_large"
+                        android:text="Developed by UCC"
+                        android:textColor="@color/grey_20"
+                        app:fontFamily="sans-serif-medium" />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/spacing_large"
+                        android:layout_marginRight="@dimen/spacing_large"
+                        android:text="Version: 1.0.1Release"
+                        android:textColor="@color/grey_20"
+                        app:fontFamily="sans-serif-medium" />
                     <View
                         android:layout_width="0dp"
                         android:layout_height="0dp"

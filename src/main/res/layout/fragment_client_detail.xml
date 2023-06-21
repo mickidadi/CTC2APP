@@ -209,7 +209,7 @@
                                 android:id="@+id/action_button_treatment_supporter"
                                 android:background="@drawable/ic_add"
                                 android:layout_marginBottom="@dimen/spacing_small"
-                                android:text=""
+                                android:text="Add"
                                 />
 
                             </LinearLayout>

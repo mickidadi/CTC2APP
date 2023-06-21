@@ -25,7 +25,6 @@ public class ClientTreatmentSupporterEntity {
     private String dateJoined;
     @ColumnInfo(name="SMSConsent")
     private String SMSConsent;
-
     public ClientTreatmentSupporterEntity(String clientId, String treatmentSupporterName, String treatmentSupporterPhone, String clientCommunityGroup, String dateJoined, String SMSConsent) {
         this.clientId = clientId;
         this.treatmentSupporterName = treatmentSupporterName;

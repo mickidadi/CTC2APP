@@ -53,7 +53,7 @@
 		android:orientation="vertical" >
 
 		<LinearLayout
-			android:id="@+id/success_controls"
+
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:gravity="center"
@@ -79,7 +79,7 @@
 		</LinearLayout>
 
 		<LinearLayout
-			android:id="@+id/success_controls"
+
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:gravity="center"
@@ -103,13 +103,13 @@
 				android:text="@string/msg_verify" />
 		</LinearLayout>
 	</LinearLayout>
-<!--
-	<TextView
-			android:id="@+id/textview_status"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:gravity="center"
-			android:text="Status" />
--->
+	<!--
+        <TextView
+                android:id="@+id/textview_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Status" />
+    -->
 
 </LinearLayout>

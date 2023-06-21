@@ -201,7 +201,7 @@ public abstract class BiometricActivity extends BaseActivity implements Enrollme
 
 		try {
 			getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-			setContentView(R.layout.activity_finger_print_main);
+			//setContentView(R.layout.activity_finger_print_main);
 			captureControls = (LinearLayout) findViewById(R.id.multimodal_capture_controls);
 			successControls = (LinearLayout) findViewById(R.id.multimodal_success_controls);
 			stopControls = (LinearLayout) findViewById(R.id.multimodal_stop_controls);
@@ -437,7 +437,7 @@ public abstract class BiometricActivity extends BaseActivity implements Enrollme
 		if (item.getItemId() == android.R.id.home) {
 			super.onBackPressed();
 		} else if (item.getItemId() == R.id.action_filter || item.getItemId() == R.id.action_search) {
-			drawer.openDrawer( GravityCompat.END);
+			//drawer.openDrawer( GravityCompat.END);
 		} else {
 			Toast.makeText(getApplicationContext(), item.getTitle(), Toast.LENGTH_SHORT).show();
 		}

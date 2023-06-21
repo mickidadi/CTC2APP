@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ucc.ctc.R;
+import com.ucc.ctc.utils.Util;
 import com.ucc.ctc.viewsModel.FacilitySearchViewModel;
 
 import java.io.IOException;
@@ -55,7 +56,8 @@ private FacilitySearchViewModel viewModel;
                     isValid=false;
                     focusView=webUrl;
                 }
-                if (isValidIPAddress(url)) {
+
+                if (Util.isValidIPAddress(url)) {
                    /* if (isIPAddressAvailable(url)) {
                         //System.out.println("IP address is valid and available.");
                         webUrl.setError("IP address is valid and available.");
@@ -121,11 +123,5 @@ private FacilitySearchViewModel viewModel;
         }
         return isAvailable;
     }
-    public boolean isValidIPAddress(String ipAddress) {
-        String pattern = "^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
-                "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
-                "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
-                "([01]?\\d\\d?|2[0-4]\\d|25[0-5])$";
-        return ipAddress.matches(pattern);
-    }
+
 }

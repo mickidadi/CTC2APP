@@ -88,15 +88,17 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text=" | "
+                                android:text="|"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
                                 android:textColor="@android:color/black"
                                 android:textStyle="bold" />
-
+                            <View
+                                android:layout_width="@dimen/spacing_small"
+                                android:layout_height="0dp" />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text=" 32yrs  "
+                                android:text="32yrs"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
                                 android:textColor="@color/black" />
                             <View
@@ -105,11 +107,13 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text=" | "
+                                android:text="|"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
                                 android:textColor="@android:color/black"
                                 android:textStyle="bold" />
-
+                            <View
+                                android:layout_width="@dimen/spacing_small"
+                                android:layout_height="0dp" />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -145,7 +149,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="2dp"
                                     android:text="@string/edit"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/colorPrimaryLight"
                                     android:textSize="12sp" />
 
                             </LinearLayout>
@@ -169,7 +173,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Finger"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/colorPrimaryLight"
                                     android:textSize="12sp"
                                     />
                                 <LinearLayout
@@ -177,7 +181,6 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="10dp"
                                     android:orientation="vertical">
-
 
                                 </LinearLayout>
                             </LinearLayout>

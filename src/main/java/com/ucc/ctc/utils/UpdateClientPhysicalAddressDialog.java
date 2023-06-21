@@ -254,7 +254,7 @@ public class UpdateClientPhysicalAddressDialog extends AppCompatDialogFragment i
             }
         });
         mSaveBtn = view.findViewById(R.id.cpd_save);
-        cancel=view.findViewById( R.id.cpd_cancel);
+       // cancel=view.findViewById( R.id.cpd_cancel);
         bt_close=view.findViewById( R.id.cpd_close );
         mSaveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -305,12 +305,12 @@ public class UpdateClientPhysicalAddressDialog extends AppCompatDialogFragment i
                 }
             }
         });
-        cancel.setOnClickListener( new View.OnClickListener() {
+       /* cancel.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dismiss();
             }
-        } );
+        } );*/
         bt_close.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
