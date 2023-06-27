@@ -32,8 +32,10 @@ public class ClientBiometricEntity {
     private int changeTrackStatus;
     @ColumnInfo(name="RecGUID")
     private String recGUID;
+    @ColumnInfo(name="BiometricSpecificationId")
+    private String biometricSpecificationId;
 
-    public ClientBiometricEntity(String clientId, byte[] biometricTemplate, String entryDate, String rowVersion, String centralReferenceCode, String isDuplicate, int quality, int actionTag, int biometricsRegOrigin, int changeTrackStatus, String recGUID) {
+    public ClientBiometricEntity(String clientId, byte[] biometricTemplate, String entryDate, String rowVersion, String centralReferenceCode, String isDuplicate, int quality, int actionTag, int biometricsRegOrigin, int changeTrackStatus, String recGUID, String biometricSpecificationId) {
         this.clientId = clientId;
         this.biometricTemplate = biometricTemplate;
         this.entryDate = entryDate;
@@ -45,7 +47,10 @@ public class ClientBiometricEntity {
         this.biometricsRegOrigin = biometricsRegOrigin;
         this.changeTrackStatus = changeTrackStatus;
         this.recGUID = recGUID;
+        this.biometricSpecificationId = biometricSpecificationId;
     }
+
+
     public byte[] getBiometricTemplate() {
         return biometricTemplate;
     }
@@ -139,4 +144,11 @@ public class ClientBiometricEntity {
         this.recGUID = recGUID;
     }
 
+    public String getBiometricSpecificationId() {
+        return biometricSpecificationId;
+    }
+
+    public void setBiometricSpecificationId(String biometricSpecificationId) {
+        this.biometricSpecificationId = biometricSpecificationId;
+    }
 }

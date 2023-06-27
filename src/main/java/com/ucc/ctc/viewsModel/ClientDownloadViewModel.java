@@ -12,11 +12,11 @@ public class ClientDownloadViewModel extends ViewModel {
     public ClientDownloadViewModel() {
         clientRepository = ClientDownloadRepository.getInstance();
     }
-    public void getRemoteClient(String username,String password) {
+    public void getRemoteClient(String username,String password,String facilityUrl) {
         if (this.clientLiveData!= null) {
 
         }
-        clientLiveData = clientRepository.getRemoteClient(username,password);
+        clientLiveData = clientRepository.getRemoteClient(username,password,facilityUrl);
     }
     public LiveData<ClientRootRemote> getClientLiveData() {
         return clientLiveData;

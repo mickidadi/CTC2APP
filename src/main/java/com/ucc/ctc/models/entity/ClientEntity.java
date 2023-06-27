@@ -25,6 +25,7 @@ public class ClientEntity {
     @ColumnInfo(name="FacilityId")
     private String facilityId;
     @ColumnInfo(name="FingerPrintConcept")
+
     private String fingerPrintConcept;
     public ClientEntity(String clientId, String firstName, String middleName, String lastName, String sex, String dateOfBirth, String referenceCode,String facilityId, String fingerPrintConcept) {
 

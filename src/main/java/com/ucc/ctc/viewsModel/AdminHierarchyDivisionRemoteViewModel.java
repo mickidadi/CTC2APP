@@ -16,8 +16,8 @@ public class AdminHierarchyDivisionRemoteViewModel extends ViewModel {
 
         repository = AdminHierarchyDivisionRemoteRepository.getInstance();
     }
-   public void getRemoteAdminHierarchyExtended() {
-       adminHierarchyDivisionRootRemoteLiveData = repository.getAdminHierarchyRemote();
+   public void getRemoteAdminHierarchyExtended(String url) {
+       adminHierarchyDivisionRootRemoteLiveData = repository.getAdminHierarchyRemote(url);
     }
     public LiveData<AdminHierarchyDivisionRootRemote> getAdminHierarchyDivisionRemoteLiveDataLiveData() {
         return adminHierarchyDivisionRootRemoteLiveData;

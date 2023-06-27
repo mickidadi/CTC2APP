@@ -412,7 +412,7 @@
                 for (FingerTemplateElement elements : arrayList) {
         ClientBiometricEntity facility = new ClientBiometricEntity(ClientId,elements.getByteTemplate(),"",
                 "V1",elements.getFingerPosition(),"1",1,
-                1,1,0,"");
+                1,1,0,"","");
                     clientBiometricViewModel.insert(facility);
                         //end register Facility
 

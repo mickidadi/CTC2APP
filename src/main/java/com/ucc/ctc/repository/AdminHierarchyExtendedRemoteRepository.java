@@ -1,6 +1,8 @@
 
  package com.ucc.ctc.repository;
 
+ import android.util.Log;
+
  import androidx.lifecycle.LiveData;
  import androidx.lifecycle.MutableLiveData;
 
@@ -45,7 +47,7 @@
          }
          return instance;
      }
-     public LiveData<AdminHierarchyExtendedRootRemote> getAdminHierarchyRemote() {
+     public LiveData<AdminHierarchyExtendedRootRemote> getAdminHierarchyRemote11() {
          MutableLiveData<AdminHierarchyExtendedRootRemote> data = new MutableLiveData<>();
          apiServices.getRemoteAdminHierachyExtendedDownload().enqueue(new Callback<AdminHierarchyExtendedRootRemote>() {
              @Override
@@ -59,6 +61,41 @@
                  data.setValue(null);
              }
          });
+         return data;
+     }
+     public LiveData<AdminHierarchyExtendedRootRemote> getAdminHierarchyRemote(String url) {
+
+         MutableLiveData<AdminHierarchyExtendedRootRemote> data = new MutableLiveData<>();
+         // Create a new instance of HttpLoggingInterceptor
+         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+         // Add the loggingInterceptor to your OkHttpClient
+         OkHttpClient client = new OkHttpClient.Builder()
+                 .addInterceptor(loggingInterceptor)
+                 .build();
+
+         Retrofit retrofit = new Retrofit.Builder()
+                 .baseUrl("http://"+url)
+                 .addConverterFactory( GsonConverterFactory.create())
+                 .client(client)
+                 .build();
+         apiServices = retrofit.create(ApiService.class);
+         apiServices.getRemoteAdminHierachyExtendedDownload ().enqueue(new Callback<AdminHierarchyExtendedRootRemote>() {
+             @Override
+             public void onResponse(Call<AdminHierarchyExtendedRootRemote> call, Response<AdminHierarchyExtendedRootRemote> response) {
+                 Log.v("Test ", "Respond " +response.body());
+                 if (response.body() != null) {
+                     data.setValue(response.body());
+                 }
+             }
+             @Override
+             public void onFailure(Call<AdminHierarchyExtendedRootRemote> call, Throwable t) {
+                 data.setValue(null);
+                 Log.v("Failed Login ", " View Repository " );
+             }
+         });
+         Log.v("Login Data", "View Repository");
          return data;
      }
  }

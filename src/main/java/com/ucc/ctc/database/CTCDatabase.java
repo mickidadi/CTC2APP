@@ -16,6 +16,7 @@ import com.ucc.ctc.dao.ClientDao;
 import com.ucc.ctc.dao.ClientPhysicalAddressDao;
 import com.ucc.ctc.dao.ClientTreatmentSupporterDao;
 import com.ucc.ctc.dao.FacilityDao;
+import com.ucc.ctc.dao.PatientDao;
 import com.ucc.ctc.dao.PatientVisitDao;
 import com.ucc.ctc.dao.UserLoginDao;
 import com.ucc.ctc.models.entity.AdminHierarchyDivisionEntity;
@@ -34,7 +35,7 @@ import com.ucc.ctc.models.entity.UserEntity;
 @Database(entities = {ClientEntity.class, FacilityEntity.class, UserEntity.class,
         PatientVisitEntity.class, PatientEntity.class, ClientBiometricEntity.class, ClientPhysicalAddressEntity.class,
           ClientTreatmentSupporterEntity.class, AdminHierarchyEntity.class,
-        AdminHierarchyExtendedEntity.class, AdminHierarchyDivisionEntity.class},version =2)
+        AdminHierarchyExtendedEntity.class, AdminHierarchyDivisionEntity.class},version =1)
 public abstract class CTCDatabase extends RoomDatabase {
 
     private static CTCDatabase instance;
@@ -49,6 +50,7 @@ public abstract class CTCDatabase extends RoomDatabase {
     public abstract AdminHierarchyDao adminHierarchyDao();
     public abstract AdminHierarchyExtendedDao adminHierarchyExtendedDao();
     public abstract AdminHierarchyDivisionDao adminHierarchyDivisionDao();
+    public abstract PatientDao patientDao();
     public static synchronized CTCDatabase getInstance(Context context)
     {
         if(instance == null)

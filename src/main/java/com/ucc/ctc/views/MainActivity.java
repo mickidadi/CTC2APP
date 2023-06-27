@@ -101,8 +101,9 @@ public class MainActivity extends AppCompatActivity
         SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("facilitySession", Context.MODE_PRIVATE);
         //String name = sharedPreferences.getString("facilityNamesession", "");
         String facilityName = sharedPreferences.getString("facilityNamesession", "");
-        String facilityId = sharedPreferences.getString("facilityIdsession", "");
-        ///Log.d("MyActivity", "Name: " + facilityName);
+        //String facilityId = sharedPreferences.getString("facilityIdsession", "");
+        String facilityUrl = sharedPreferences.getString("facilityUrl", "");
+        Log.d("MyActivity", "Name: " + facilityName+" IP :"+facilityUrl);
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);

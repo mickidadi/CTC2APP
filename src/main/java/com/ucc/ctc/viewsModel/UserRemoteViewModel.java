@@ -14,13 +14,13 @@ public class UserRemoteViewModel extends ViewModel {
 
         userRepository = UserRemoteRepository.getInstance();
     }
-   public void getRemoteUser(String username,String password) {
+   public void getRemoteUser(String username,String password,String url) {
         if (this.userLiveData!= null) {
             if (this.userLiveData.getValue().getUsername() == username) {
                 return;
             }
         }
-        userLiveData = userRepository.getUserRemote(username,password);
+        userLiveData = userRepository.getUserRemote(username,password,url);
     }
     public LiveData<UserProfile> getUserLiveData() {
         return userLiveData;

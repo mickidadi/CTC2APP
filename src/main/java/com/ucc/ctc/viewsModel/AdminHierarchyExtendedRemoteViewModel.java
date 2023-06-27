@@ -13,8 +13,8 @@ public class AdminHierarchyExtendedRemoteViewModel extends ViewModel {
 
         repository = AdminHierarchyExtendedRemoteRepository.getInstance();
     }
-   public void getRemoteAdminHierarchyExtended() {
-       adminHierarchyExtendedRootRemoteLiveData = repository.getAdminHierarchyRemote();
+   public void getRemoteAdminHierarchyExtended(String url) {
+       adminHierarchyExtendedRootRemoteLiveData = repository.getAdminHierarchyRemote(url);
     }
     public LiveData<AdminHierarchyExtendedRootRemote> getAdminHierarchyRemoteLiveDataLiveData() {
         return adminHierarchyExtendedRootRemoteLiveData;

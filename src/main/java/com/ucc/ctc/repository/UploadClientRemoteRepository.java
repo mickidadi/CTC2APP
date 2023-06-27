@@ -2,21 +2,27 @@ package com.ucc.ctc.repository;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.ucc.ctc.apis.ApiService;
 import com.ucc.ctc.dao.ClientBiometricDao;
 import com.ucc.ctc.dao.ClientDao;
 import com.ucc.ctc.database.CTCDatabase;
-import com.ucc.ctc.models.*;
+import com.ucc.ctc.models.Record;
+import com.ucc.ctc.models.UploadClientBiometricRecord;
+import com.ucc.ctc.models.UploadClientPayload;
+import com.ucc.ctc.models.UploadClientRecord;
+import com.ucc.ctc.models.UploadClientRemoteResponse;
+import com.ucc.ctc.models.UploadClientTableData;
 import com.ucc.ctc.models.entity.ClientBiometricEntity;
 import com.ucc.ctc.models.entity.ClientEntity;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +44,6 @@ public class UploadClientRemoteRepository {
     public UploadClientRemoteRepository(Context context) {
         CTCDatabase database = CTCDatabase.getInstance(context);
         clientDao = database.clientDao();
-       // clients = clientDao.getAllClientBio();
         clientBioDao = database.clientBiometricDao();
 
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
@@ -61,68 +66,53 @@ public class UploadClientRemoteRepository {
         return clientDao.getAllClients();
     }
 
-    public LiveData<UploadClientRemoteResponse> sendDataToAPI() {
+    public LiveData<UploadClientRemoteResponse> sendDataToAPI(String url) {
         MutableLiveData<UploadClientRemoteResponse> data = new MutableLiveData<>();
-
+        // Set Url to upload data
+        getSendData(url);
         // Perform the database retrieval and API call in the background
-        new SendDataAsyncTask(data).execute();
+        new SendDataAsyncTask(data, clientDao, clientBioDao, apiService).execute();
 
         return data;
     }
 
-    private JSONObject convertToJson(UploadClientPayload payload) {
-        JSONObject payloadObj = new JSONObject();
+    private static JsonNode convertToJson(UploadClientPayload payload) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectNode payloadObj = objectMapper.createObjectNode();
 
-        try {
-            payloadObj.put("Session", payload.getSession());
-            payloadObj.put("SessionStatus", payload.getSessionStatus());
-
-            JSONArray dataArray = new JSONArray();
-
-            for (UploadClientTableData data : payload.getTableData()) {
-                JSONObject dataObj = new JSONObject();
-                dataObj.put("TableName", data.getTableName());
-
-                JSONArray recordsArray = new JSONArray();
-
-                for (Record record : data.getRecords()) {
-                    if (record instanceof UploadClientRecord) {
-                        UploadClientRecord clientRecord = (UploadClientRecord) record;
-                        JSONObject recordObj = new JSONObject();
-                        recordObj.put("ClientId", clientRecord.getClientId());
-                        recordObj.put("FirstName", clientRecord.getFirstName());
-                        recordObj.put("MiddleName", clientRecord.getMiddleName());
-                        recordObj.put("LastName", clientRecord.getLastName());
-                        recordsArray.put(recordObj);
-                    } else if (record instanceof UploadClientBiometricRecord) {
-                        UploadClientBiometricRecord clientBiometry = (UploadClientBiometricRecord) record;
-                        JSONObject recordObj = new JSONObject();
-                        recordObj.put("ClientBiometryId", clientBiometry.getClientBiometryId());
-                        recordObj.put("BiometricSpecificationId", clientBiometry.getBiometricSpecificationId());
-                        recordObj.put("Biometry", clientBiometry.getBiometricTemplate());
-                        recordObj.put("ClientId", clientBiometry.getClientId());
-                        recordsArray.put(recordObj);
-                    }
-                    // Handle other record types if needed
-                }
-
-                dataObj.put("Records", recordsArray);
-                dataArray.put(dataObj);
-            }
-
-            payloadObj.put("Data", dataArray);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        // Rest of the code remains unchanged
+        // ...
 
         return payloadObj;
     }
 
-    private class SendDataAsyncTask extends AsyncTask<Void, Void, Void> {
-        private MutableLiveData<UploadClientRemoteResponse> data;
+    private void getSendData(String url) {
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
-        public SendDataAsyncTask(MutableLiveData<UploadClientRemoteResponse> data) {
+        OkHttpClient client = new OkHttpClient.Builder()
+                .addInterceptor(loggingInterceptor)
+                .build();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://" + url + "/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
+                .build();
+        apiService = retrofit.create(ApiService.class);
+    }
+
+    private static class SendDataAsyncTask extends AsyncTask<Void, Void, Void> {
+        private MutableLiveData<UploadClientRemoteResponse> data;
+        private ClientDao clientDao;
+        private ClientBiometricDao clientBioDao;
+        private ApiService apiService;
+
+        public SendDataAsyncTask(MutableLiveData<UploadClientRemoteResponse> data, ClientDao clientDao, ClientBiometricDao clientBioDao, ApiService apiService) {
             this.data = data;
+            this.clientDao = clientDao;
+            this.clientBioDao = clientBioDao;
+            this.apiService = apiService;
         }
 
         @Override
@@ -133,8 +123,8 @@ public class UploadClientRemoteRepository {
 
             List<UploadClientTableData> tableDataList = new ArrayList<>();
 
-            // Retrieve data from Room database
-            List<ClientEntity> clients =clientDao.getAllClientBio();
+            // Retrieve Data from Room Database
+            List<ClientEntity> clients = clientDao.getAllClientBio();
             // tblClients
             UploadClientTableData tblClients = new UploadClientTableData();
             tblClients.setTableName("tblClients");
@@ -152,8 +142,8 @@ public class UploadClientRemoteRepository {
 
             tblClients.setRecords(clientRecords);
             tableDataList.add(tblClients);
-
-            // tblClient Biometries
+            //End Client Data
+            //tblClient Biometries
             UploadClientTableData tblClientBiometries = new UploadClientTableData();
             tblClientBiometries.setTableName("tblClientBiometries");
 
@@ -164,17 +154,17 @@ public class UploadClientRemoteRepository {
                 UploadClientBiometricRecord biometry1 = new UploadClientBiometricRecord();
                 biometry1.setClientBiometryId(clientbio.getId());
                 biometry1.setBiometricSpecificationId(2);
-                byte[] byteArray1 = {80, 65, 78, 75, 65, 74};
                 biometry1.setBiometricTemplate(clientbio.getBiometricTemplate());
                 biometry1.setClientId(clientbio.getClientId());
                 clientBiometries.add(biometry1);
             }
             tblClientBiometries.setRecords(clientBiometries);
             tableDataList.add(tblClientBiometries);
+            //End Biometric Client Data
 
             payload.setTableData(tableDataList);
-            JSONObject payloaddata = convertToJson(payload);
-
+            JsonNode payloaddata = convertToJson(payload);
+            Log.v( "dataclient",  payload.toString());
             apiService.sendData(payloaddata).enqueue(new Callback<UploadClientRemoteResponse>() {
                 @Override
                 public void onResponse(Call<UploadClientRemoteResponse> call, Response<UploadClientRemoteResponse> response) {

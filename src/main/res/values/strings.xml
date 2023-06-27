@@ -507,6 +507,7 @@
     <string name="does_the_client_have_known_drug_allergeis">Does the Client have known drug allergeis</string>
     <string name="hfr_code">HFR Code</string>
     <string name="title_activity_license_activation">LicenseActivationActivity</string>
+    <string name="error_field_required">This field is required</string>
     <string-array name="planets">
         <item>Mercury</item>
         <item>Venus</item>

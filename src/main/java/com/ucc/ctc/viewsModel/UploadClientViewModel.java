@@ -37,9 +37,9 @@ public class UploadClientViewModel extends AndroidViewModel {
         return allClients;
     }
 
-    public LiveData<UploadClientRemoteResponse> sendDataToAPI() {
+    public LiveData<UploadClientRemoteResponse> sendDataToAPI(String url) {
         if (payloadLiveData == null) {
-            payloadLiveData = remoteRepository.sendDataToAPI();
+            payloadLiveData = remoteRepository.sendDataToAPI(url);
         }
         return payloadLiveData;
     }

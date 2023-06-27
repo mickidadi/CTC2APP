@@ -1,4 +1,5 @@
 package com.ucc.ctc.apis;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.ucc.ctc.models.AdminHierarchyDivisionRootRemote;
 import com.ucc.ctc.models.AdminHierarchyExtendedRootRemote;
 import com.ucc.ctc.models.AdminHierarchyRemote;
@@ -30,5 +31,5 @@ public interface ApiService {
     @GET("/afyaplus/index.php?r=site/getremoteadminhierarchydivision")
     Call<AdminHierarchyDivisionRootRemote> getRemoteAdminHierachyDivisionDownload();
     @POST("/afyaplus/index.php?r=site/upload-client")
-    Call<UploadClientRemoteResponse> sendData(@Body JSONObject payload);
+    Call<UploadClientRemoteResponse> sendData(@Body JsonNode payload);
 }

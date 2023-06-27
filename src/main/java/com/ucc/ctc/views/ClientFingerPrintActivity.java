@@ -299,7 +299,7 @@ public class ClientFingerPrintActivity extends AppCompatActivity {
                      String recGUID = "8432984jajjeqwkejq8342340";
                      if (finger_label != "") {
                          ClientBiometricEntity clientBiometric = new ClientBiometricEntity( clientId, biometricTemplate, entryDate, rowVersion
-                                 , centralReferenceCode, isDuplicate, quality, actionTag, biometricsRegOrigin, changeTrackStatus, recGUID );
+                                 , centralReferenceCode, isDuplicate, quality, actionTag, biometricsRegOrigin, changeTrackStatus, recGUID,"" );
                          clientBiometricViewModel.insert( clientBiometric );
                      }
                      //end save
